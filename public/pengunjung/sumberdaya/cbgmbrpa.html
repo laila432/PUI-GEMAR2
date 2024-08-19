@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Photo Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto p-4">
+      <!-- Gambar utama yang dipilih -->
+      <div class="mb-4">
+        <img
+          id="mainImage"
+          src="https://via.placeholder.com/800x500"
+          alt="Gambar Utama"
+          class="w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+
+      <!-- Galeri thumbnail gambar -->
+      <div class="flex space-x-4 overflow-x-auto">
+        <img
+          src="https://via.placeholder.com/800x500"
+          alt="Gambar 1"
+          class="thumbnail w-24 h-16 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+        />
+        <img
+          src="https://via.placeholder.com/801x501"
+          alt="Gambar 2"
+          class="thumbnail w-24 h-16 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+        />
+        <img
+          src="https://via.placeholder.com/802x502"
+          alt="Gambar 3"
+          class="thumbnail w-24 h-16 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+        />
+        <img
+          src="https://via.placeholder.com/803x503"
+          alt="Gambar 4"
+          class="thumbnail w-24 h-16 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+        />
+        <img
+          src="https://via.placeholder.com/804x504"
+          alt="Gambar 5"
+          class="thumbnail w-24 h-16 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+        />
+      </div>
+
+      <!-- Galeri Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-32">
+        <img
+          src="https://via.placeholder.com/800x500"
+          alt="Gambar 1"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="https://via.placeholder.com/801x501"
+          alt="Gambar 2"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="https://via.placeholder.com/802x502"
+          alt="Gambar 3"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="https://via.placeholder.com/803x503"
+          alt="Gambar 4"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="https://via.placeholder.com/804x504"
+          alt="Gambar 5"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+          onclick="openModal(this.src)"
+        />
+        <img
+          src="https://via.placeholder.com/805x505"
+          alt="Gambar 6"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+          onclick="openModal(this.src)"
+        />
+      </div>
+      <!-- Accordion Item 1 -->
+      <div class="border border-gray-200 rounded-lg mb-4">
+        <button
+          class="flex justify-between items-center w-full px-4 py-2 text-left text-gray-800 font-semibold bg-gray-200 rounded-lg focus:outline-none"
+        >
+          <span>Gambar 1</span>
+          <svg
+            class="w-5 h-5 transform transition-transform duration-200 rotate-0"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div class="hidden px-4 py-2 bg-white">
+          <img
+            src="https://via.placeholder.com/400"
+            alt="Gambar 1"
+            class="rounded-lg shadow-lg max-w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Accordion Item 2 -->
+      <div class="border border-gray-200 rounded-lg mb-4">
+        <button
+          class="flex justify-between items-center w-full px-4 py-2 text-left text-gray-800 font-semibold bg-gray-200 rounded-lg focus:outline-none"
+        >
+          <span>Gambar 2</span>
+          <svg
+            class="w-5 h-5 transform transition-transform duration-200 rotate-0"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div class="hidden px-4 py-2 bg-white">
+          <img
+            src="https://via.placeholder.com/400"
+            alt="Gambar 2"
+            class="rounded-lg shadow-lg max-w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Accordion Item 3 -->
+      <div class="border border-gray-200 rounded-lg mb-4">
+        <button
+          class="flex justify-between items-center w-full px-4 py-2 text-left text-gray-800 font-semibold bg-gray-200 rounded-lg focus:outline-none"
+        >
+          <span>Gambar 3</span>
+          <svg
+            class="w-5 h-5 transform transition-transform duration-200 rotate-0"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div class="hidden px-4 py-2 bg-white">
+          <img
+            src="https://via.placeholder.com/400"
+            alt="Gambar 3"
+            class="rounded-lg shadow-lg max-w-full"
+          />
+        </div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="relative">
+        <!-- Carousel Images -->
+        <div class="relative overflow-hidden rounded-lg">
+          <div
+            class="carousel-wrapper flex transition-transform duration-500 ease-in-out"
+          >
+            <img
+              src="https://via.placeholder.com/800x400"
+              alt="Gambar 1"
+              class="w-full object-cover rounded-lg"
+            />
+            <img
+              src="https://via.placeholder.com/800x400"
+              alt="Gambar 2"
+              class="w-full object-cover rounded-lg"
+            />
+            <img
+              src="https://via.placeholder.com/800x400"
+              alt="Gambar 3"
+              class="w-full object-cover rounded-lg"
+            />
+            <img
+              src="https://via.placeholder.com/800x400"
+              alt="Gambar 4"
+              class="w-full object-cover rounded-lg"
+            />
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button
+          class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none hover:bg-gray-600"
+          id="prev"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full focus:outline-none hover:bg-gray-600"
+          id="next"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carousel Indicators -->
+      <div
+        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"
+      >
+        <button
+          class="w-3 h-3 bg-gray-600 rounded-full focus:outline-none"
+          data-slide="0"
+        ></button>
+        <button
+          class="w-3 h-3 bg-gray-600 rounded-full focus:outline-none"
+          data-slide="1"
+        ></button>
+        <button
+          class="w-3 h-3 bg-gray-600 rounded-full focus:outline-none"
+          data-slide="2"
+        ></button>
+        <button
+          class="w-3 h-3 bg-gray-600 rounded-full focus:outline-none"
+          data-slide="3"
+        ></button>
+      </div>
+      <!-- Gallery Grid -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+      >
+        <!-- Gallery Item 1 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 1"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 2 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 2"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 3 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 3"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 4 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 4"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 5 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 5"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 6 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 6"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 7 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 7"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+        <!-- Gallery Item 8 -->
+        <div
+          class="gallery-item cursor-pointer transition-transform transform hover:scale-105"
+        >
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Gallery Image 8"
+            class="w-full h-64 rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk memperbesar gambar -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 items-center justify-center bg-black bg-opacity-75 hidden z-50 p-4"
+    >
+      <div class="relative">
+        <img
+          id="modalImage"
+          src=""
+          alt="Modal Image"
+          class="rounded-lg shadow-lg max-h-full"
+        />
+        <button
+          class="absolute top-2 right-2 text-white text-3xl font-bold"
+          onclick="closeModal()"
+        >
+          ✖
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const mainImage = document.getElementById("mainImage");
+      const thumbnails = document.querySelectorAll(".thumbnail");
+
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", function () {
+          mainImage.src = this.src;
+        });
+      });
+    </script>
+    <script>
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+
+      function openModal(src) {
+        modalImage.src = src;
+        modal.classList.remove("hidden");
+      }
+
+      function closeModal() {
+        modal.classList.add("hidden");
+      }
+      toggleButton.addEventListener("click", () => {
+        // Toggle kelas hidden pada elemen yang akan di-toggle
+        toggleElement.classList.toggle("hidden");
+        toggleElement.classList.toggle("flex"); // Tambahkan kelas flex untuk menampilkan elemen
+      });
+    </script>
+    <script>
+      const accordions = document.querySelectorAll(".border");
+
+      accordions.forEach((accordion) => {
+        const button = accordion.querySelector("button");
+        const content = accordion.querySelector("div.hidden");
+        const icon = accordion.querySelector("svg");
+
+        button.addEventListener("click", () => {
+          const isOpen = content.classList.contains("hidden");
+
+          // Close all accordions
+          accordions.forEach((item) => {
+            item.querySelector("div").classList.add("hidden");
+            item.querySelector("svg").classList.remove("rotate-180");
+          });
+
+          // Toggle the clicked accordion
+          if (isOpen) {
+            content.classList.remove("hidden");
+            icon.classList.add("rotate-180");
+          }
+        });
+      });
+    </script>
+    <script>
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+      const carouselWrapper = document.querySelector(".carousel-wrapper");
+      const indicators = document.querySelectorAll("[data-slide]");
+      let currentIndex = 0;
+      const totalSlides = indicators.length;
+
+      function updateCarousel() {
+        const offset = -currentIndex * 100;
+        carouselWrapper.style.transform = `translateX(${offset}%)`;
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle("bg-gray-300", index === currentIndex);
+          indicator.classList.toggle("bg-gray-600", index !== currentIndex);
+        });
+      }
+
+      prevButton.addEventListener("click", () => {
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
+        updateCarousel();
+      });
+
+      nextButton.addEventListener("click", () => {
+        currentIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+        updateCarousel();
+      });
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+
+      // Initialize the carousel
+      updateCarousel();
+    </script>
+  </body>
+</html>
