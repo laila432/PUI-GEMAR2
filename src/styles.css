@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaya scrollbar untuk browser WebKit */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 3px; /* Lebar scrollbar */
+}
+
+/* Gaya track (jalur) scrollbar */
+::-webkit-scrollbar-track {
+  background: transparent; /* Warna jalur scrollbar */
+}
+
+/* Gaya thumb (pemegang) scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Warna thumb scrollbar */
+  border-radius: 10px; /* Sudut radius thumb */
+}
+
+/* Gaya thumb ketika dihover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Warna thumb saat dihover */
+}
+
+/* menu navbar*/
+.menu-item {
+  position: relative;
+}
+
+.menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.menu-item:hover::after {
+  background-color: white;
+}
+
+/*animasi tulisan konten pertama*/
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-bottom {
+  animation: slideInFromBottom 3s ease-out;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/*footer*/
+/* Tambahkan ke global CSS Anda */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden; /* Menghindari scroll horizontal yang tidak diinginkan */
+}
+
+/*header*/
+/* Menu Responsif */
+#responsiveMenu {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#responsiveMenu .menu-item {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Tailwind Custom CSS (optional) */
+/* Tailwind CSS customization for comments */
+.comment {
+  @apply p-4 mb-4 border border-gray-200 rounded-lg bg-gray-50;
+}
+.comment .author {
+  @apply font-semibold text-indigo-700;
+}
+.comment .text {
+  @apply mt-2 text-gray-800;
+}
+.comment .reply-button {
+  @apply text-indigo-600 mt-2 cursor-pointer hover:underline;
+}
+.reply-form {
+  @apply mt-4 p-4 border border-gray-300 rounded-lg bg-gray-50;
+}
+.reply-form textarea {
+  @apply w-full p-2 border border-gray-300 rounded-lg;
+}
+.reply-form button {
+  @apply mt-2 bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700;
+}
+
+/*komendetailkeg*/
+
+/* CSS ini di dalam tag <style> di file HTML atau di file CSS terpisah */
+.comment {
+  position: relative;
+}
+.reply-form {
+  display: none;
+}
+.comment .reply-link {
+  cursor: pointer;
+}
+.reply {
+  margin-left: 1rem; /* Sesuaikan jarak indentasi untuk balasan */
+}
