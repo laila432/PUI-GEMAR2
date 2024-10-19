@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artikel</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 overflow-y-auto mx-3">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <h1 class="text-4xl font-bold text-indigo-900 mt-6 mb-5">
+              Artikel
+            </h1>
+
+            <!-- Artikel 1 -->
+            <div class="mb-8 mt-12">
+              <a
+                href="https://mail.online-journal.unja.ac.id/EDP/article/view/5773"
+                class="block text-xl font-semibold text-indigo-900 mb-0"
+                >Potensi Kearifan Lokal Geopark Merangin Sebagai Sumber Belajar
+                Sains Di SMP</a
+              >
+              <p class="text-sm text-gray-500 mb-2">2018-06-30</p>
+              <p class="text-gray-800 leading-relaxed">
+                Geopark Merangin merupakan suatu konsep alam yang mampu
+                mengintegrasikan seluruh sumber daya alam disekitar lokasi yang
+                memiliki keunikan geologi, alam serta budaya dengan tujuan untuk
+                pembangunan serta pengembangan ekonomi kerakyatan. Penelitian
+                ini bertujuan untuk mengeksplorasi dan mengidentifikasi
+                nilai-nilai sains yang terdapat pada objek geopark Merangin
+                serta memetakan KD IPA jenjang SMP. Penelitian ini merupakan
+                penelitian deskriptif kualitatif. Hasil penelitian ini
+                menunjukkan bahwa geopark Merangin memiliki nilai-nilai sains
+                yang terdapat pada objek keragaman geologi yaitu waktu paruh,
+                radioaktivitas dan energi. Pada objek keragaman hayati terdapat
+                nilai sains klasifikasi makhluk hidup dan lingkungan dan pada
+                objek keragaman budaya terdapat nilai sains konsep bunyi dan
+                gerak tubuh manusia. KD yang terpetakan pada kearifan lokal
+                geopark Merangin yaitu pada kelas VII KD 3.2, 3.5, 3.7, 3.10 dan
+                kelas VIII KD 3.1. Berdasarkan hasil penelitian ini dapat
+                disimpulkan bahwa kearifan lokal geopark Merangin memiliki
+                potensi untuk dijadikan sebagai sumber belajar sains tingkat
+                SMP.
+              </p>
+              <div class="flex items-center mt-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-article-id="1"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-article-id="1">2</span>
+                </button>
+              </div>
+              <!-- Edit and Delete Buttons -->
+              <div class="flex justify-end mt-2">
+                <a href="edtartikel.html">
+                  <button class="mx-2 text-gray-600 hover:text-gray-900">
+                    <i class="fas fa-edit text-yellow-500"></i>
+                  </button>
+                </a>
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+              <hr class="border-gray-800 my-1" />
+            </div>
+
+            <!-- Artikel 2 -->
+            <div class="mb-8">
+              <a
+                href="detail_artikel_2.html"
+                class="block text-xl font-semibold text-indigo-900 mb-2"
+                >Judul Artikel 2</a
+              >
+              <p class="text-sm text-gray-500 mb-2">01 April 2024</p>
+              <p class="text-gray-800 leading-relaxed">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+              <div class="flex items-center mt-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-article-id="2"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-article-id="2">0</span>
+                </button>
+              </div>
+              <!-- Edit and Delete Buttons -->
+              <div class="flex justify-end mt-4">
+                <button class="mx-2 text-gray-600 hover:text-gray-900">
+                  <i class="fas fa-edit text-yellow-500"></i>
+                </button>
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <hr class="border-gray-800 my-1" />
+
+            <!-- Artikel 3 -->
+            <div class="mb-8">
+              <a
+                href="detail_artikel_3.html"
+                class="block text-xl font-semibold text-indigo-900 mb-2"
+                >Judul Artikel 3</a
+              >
+              <p class="text-sm text-gray-500 mb-2">01 April 2024</p>
+              <p class="text-gray-800 leading-relaxed">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+              <div class="flex items-center mt-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-article-id="3"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-article-id="3">0</span>
+                </button>
+              </div>
+              <!-- Edit and Delete Buttons -->
+              <div class="flex justify-end mt-4">
+                <button class="mx-2 text-gray-600 hover:text-gray-900">
+                  <i class="fas fa-edit text-yellow-500"></i>
+                </button>
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <hr class="border-gray-800 my-1" />
+            <!-- Artikel 4 -->
+            <div class="mb-8">
+              <a
+                href="detail_artikel_4.html"
+                class="block text-xl font-semibold text-indigo-900 mb-2"
+                >Judul Artikel 4</a
+              >
+              <p class="text-sm text-gray-500 mb-2">01 April 2024</p>
+              <p class="text-gray-800 leading-relaxed">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </p>
+              <div class="flex items-center mt-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-article-id="3"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-article-id="3">0</span>
+                </button>
+              </div>
+              <!-- Edit and Delete Buttons -->
+              <div class="flex justify-end mt-4">
+                <button class="mx-2 text-gray-600 hover:text-gray-900">
+                  <i class="fas fa-edit text-yellow-500"></i>
+                </button>
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+            <hr class="border-gray-800 my-1" />
+
+            <!-- Floating Action Button -->
+            <a href="tmbhartikel.html">
+              <button
+                class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mr-4"
+                aria-label="Tambah Tim"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </a>
+          </div>
+        </main>
+      </div>
+
+      <div
+        id="notification"
+        class="hidden fixed top-3 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-md align-center"
+      >
+        Item telah dihapus.
+      </div>
+    </div>
+    <!-- Modal -->
+    <!-- Modal -->
+    <div
+      id="commentModal"
+      class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 justify-center items-center z-50 modal"
+    >
+      <div class="modal-content bg-white p-6 rounded-lg shadow-lg">
+        <div class="modal-header flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold">Komentar</h2>
+          <button
+            id="closeModal"
+            class="text-gray-500 hover:text-gray-700 text-xl"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="modalContent" class="modal-body">
+          <!-- Comments will be dynamically added here -->
+        </div>
+        <div class="modal-footer">
+          <!-- Footer content if needed -->
+        </div>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function confirmDelete() {
+        Swal.fire({
+          title: "Apakah Anda yakin?",
+          text: "Anda tidak akan dapat mengembalikan ini!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
+          customClass: {
+            popup: "small-swal-popup", // Menambahkan kelas kustom untuk mengubah ukuran
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Dihapus!", "Item telah dihapus.", "success");
+          }
+        });
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("commentModal");
+        const closeModalBtn = document.getElementById("closeModal");
+        let currentArticleId = null;
+
+        // Object to store comments in session memory
+        const sessionComments = {
+          1: [
+            {
+              id: "k1",
+              name: "Dave",
+              text: "This is an example comment.",
+              parentId: null,
+            },
+            {
+              id: "k2",
+              name: "Justin",
+              text: "This is another example comment.",
+              parentId: null,
+            },
+          ],
+        };
+
+        document.querySelectorAll(".commentBtn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            currentArticleId = btn.getAttribute("data-article-id");
+            const modalContent = document.getElementById("modalContent");
+
+            // Fetch comments for the current article from session memory
+            fetchComments(currentArticleId, modalContent);
+
+            modal.classList.remove("hidden");
+
+            // Handle comment submission
+            modalContent
+              .querySelector(".submitComment")
+              .addEventListener("click", function () {
+                const commentText =
+                  modalContent.querySelector("textarea").value;
+                const commentName = modalContent.querySelector("input").value;
+                const commentsContainer =
+                  modalContent.querySelector(".comments");
+
+                if (commentText && commentName) {
+                  const commentId = Date.now().toString(); // Generate unique ID
+                  const commentItem = createCommentItem(
+                    commentId,
+                    commentName,
+                    commentText,
+                    currentArticleId
+                  );
+                  commentsContainer.appendChild(commentItem);
+
+                  // Clear input fields
+                  modalContent.querySelector("textarea").value = "";
+                  modalContent.querySelector("input").value = "";
+
+                  // Save comment in session memory
+                  saveCommentInSession(
+                    currentArticleId,
+                    commentId,
+                    commentName,
+                    commentText
+                  );
+
+                  handleReplyButtonClick(commentItem);
+                  handleDeleteButtonClick(commentItem);
+
+                  // Update comment count after DOM has updated
+                  setTimeout(() => {
+                    updateCommentCount(currentArticleId);
+                  }, 0);
+                }
+              });
+          });
+        });
+
+        function createCommentItem(
+          commentId,
+          name,
+          text,
+          articleId,
+          parentId = null
+        ) {
+          const commentItem = document.createElement("div");
+          commentItem.classList.add(
+            "comment-item",
+            "border-t",
+            "border-gray-300",
+            "mt-2",
+            "pt-2"
+          );
+          if (parentId) {
+            commentItem.classList.add("ml-8"); // Indent for replies
+          }
+          commentItem.setAttribute("data-comment-id", commentId);
+          commentItem.setAttribute("data-article-id", articleId);
+          commentItem.innerHTML = `
+      <strong>${name}</strong>: ${text}
+      <button class="replyBtn text-blue-400 hover:underline text-sm ml-2">Reply</button>
+      <button class="deleteBtn text-red-500 hover:underline text-sm ml-2">Delete</button>
+      <div class="replies mt-2"></div>
+    `;
+          return commentItem;
+        }
+
+        function fetchComments(articleId, container) {
+          // Clear previous comments
+          container.innerHTML = `
+      <textarea class="w-full p-2 mb-1 text-gray-800 border border-gray-300 rounded-md" rows="3" placeholder="Tulis komentar anda..."></textarea>
+      <input type="text" class="w-full p-2 mb-2 text-gray-800 border border-gray-300 rounded-md" placeholder="Nama">
+      <button class="submitComment text-white bg-blue-600 px-4 py-2 mt-4 rounded-md hover:bg-blue-700">Submit</button>
+      <div class="comments mt-4 text-sm text-gray-700"></div>
+    `;
+
+          // Load comments from session memory
+          const comments = sessionComments[articleId] || [];
+          const commentsContainer = container.querySelector(".comments");
+          const commentItems = {};
+
+          comments.forEach((comment) => {
+            const commentItem = createCommentItem(
+              comment.id,
+              comment.name,
+              comment.text,
+              articleId,
+              comment.parentId
+            );
+            commentItems[comment.id] = commentItem;
+
+            if (comment.parentId) {
+              const parentComment = commentItems[comment.parentId];
+              parentComment.querySelector(".replies").appendChild(commentItem);
+            } else {
+              commentsContainer.appendChild(commentItem);
+            }
+
+            handleReplyButtonClick(commentItem);
+            handleDeleteButtonClick(commentItem);
+          });
+
+          // Initialize comment count
+          updateCommentCount(articleId);
+        }
+
+        function saveCommentInSession(
+          articleId,
+          commentId,
+          name,
+          text,
+          parentId = null
+        ) {
+          // Initialize comments array for the article if not exists
+          if (!sessionComments[articleId]) {
+            sessionComments[articleId] = [];
+          }
+          // Add the new comment to session memory
+          sessionComments[articleId].push({
+            id: commentId,
+            name,
+            text,
+            parentId,
+          });
+        }
+
+        function handleReplyButtonClick(commentItem) {
+          commentItem
+            .querySelector(".replyBtn")
+            .addEventListener("click", function () {
+              const replyForm = document.createElement("div");
+              replyForm.classList.add(
+                "mt-4",
+                "bg-gray-200",
+                "p-4",
+                "rounded-md",
+                "ml-8"
+              );
+              replyForm.innerHTML = `
+        <textarea class="w-full p-2 mb-2 text-gray-800 border border-gray-300 rounded-md" rows="2" placeholder="tulis balasan..."></textarea>
+        <input type="text" class="w-full p-2 mb-2 text-gray-800 border border-gray-300 rounded-md" placeholder="Nama">
+        <button class="submitReply text-white bg-green-600 px-4 py-2 rounded-md hover:bg-green-700">Submit</button>
+      `;
+
+              commentItem.querySelector(".replies").appendChild(replyForm);
+
+              replyForm
+                .querySelector(".submitReply")
+                .addEventListener("click", function () {
+                  const replyText = replyForm.querySelector("textarea").value;
+                  const replyName = replyForm.querySelector("input").value;
+
+                  if (replyText && replyName) {
+                    const replyId = Date.now().toString(); // Generate unique ID
+                    const replyItem = createCommentItem(
+                      replyId,
+                      replyName,
+                      replyText,
+                      commentItem.getAttribute("data-article-id"),
+                      commentItem.getAttribute("data-comment-id")
+                    );
+                    commentItem
+                      .querySelector(".replies")
+                      .appendChild(replyItem);
+
+                    replyForm.querySelector("textarea").value = "";
+                    replyForm.querySelector("input").value = "";
+                    replyForm.remove();
+
+                    // Save reply in session memory
+                    saveCommentInSession(
+                      commentItem.getAttribute("data-article-id"),
+                      replyId,
+                      replyName,
+                      replyText,
+                      commentItem.getAttribute("data-comment-id")
+                    );
+
+                    updateCommentCount(
+                      commentItem.getAttribute("data-article-id")
+                    );
+
+                    handleReplyButtonClick(replyItem);
+                    handleDeleteButtonClick(replyItem);
+                  }
+                });
+            });
+        }
+
+        function handleDeleteButtonClick(commentItem) {
+          commentItem
+            .querySelector(".deleteBtn")
+            .addEventListener("click", function () {
+              if (confirm("Apakah Anda yakin ingin menghapus komentar ini?")) {
+                const commentId = commentItem.getAttribute("data-comment-id");
+                const articleId = commentItem.getAttribute("data-article-id");
+                const comments = sessionComments[articleId] || [];
+
+                // Remove comment from session memory
+                sessionComments[articleId] = comments.filter(
+                  (comment) => comment.id !== commentId
+                );
+
+                // Remove comment item from DOM
+                commentItem.remove();
+
+                // Update comment count
+                updateCommentCount(articleId);
+              }
+            });
+        }
+
+        // Menghitung jumlah komentar dan memperbarui span dengan class "commentCount"
+        function updateCommentCount(articleId) {
+          const commentCountElement = document.querySelector(
+            `.commentCount[data-article-id="${articleId}"]`
+          );
+          if (commentCountElement) {
+            // Mengambil komentar dari sessionComments (sesuaikan dengan data aslimu)
+            const comments = sessionComments[articleId] || [];
+            // Menghitung jumlah total komentar
+            const totalCommentsCount = comments.length;
+            // Mengubah isi teks dari span menjadi jumlah komentar yang benar
+            commentCountElement.textContent = totalCommentsCount;
+          }
+        }
+
+        closeModalBtn.addEventListener("click", function () {
+          modal.classList.add("hidden");
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll(".commentCount")
+          .forEach(function (countElement) {
+            const articleId = countElement.getAttribute("data-article-id");
+            updateCommentCount(articleId);
+          });
+      });
+    </script>
+  </body>
+</html>

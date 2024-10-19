@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nama Kegitan</title>
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <!--konten detail artikel -->
+            <div class="max-w-full p-6 bg-white shadow-md rounded-lg">
+              <h1 class="text-4xl font-bold text-indigo-900 mt-2">
+                Edit Potensi Alam
+              </h1>
+              <div id="map" class="h-96 p-2 z-0 mt-10"></div>
+              <div class="form-container mt-10">
+                <form
+                  id="umkmForm"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg mb-4"
+                >
+                  <h4 class="text-2xl font-bold text-indigo-900 mb-4">
+                    Marker
+                  </h4>
+                  <!--lat-->
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="umkmLat"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Latitude</label
+                    >
+                    <!--readonly untuk tidak dapat mauskkan data manual-->
+                    <input
+                      type="text"
+                      id="umkmLat"
+                      name="umkmLat"
+                      placeholder="klik lokasi pada peta untuk melihat latitude dari titik lokasi"
+                      required
+                      readonly
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                  <!--lang-->
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="umkmLng"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Longitude</label
+                    >
+                    <input
+                      type="text"
+                      id="umkmLng"
+                      name="umkmLng"
+                      placeholder="klik lokasi pada peta untuk melihat latitude dari titik lokasi"
+                      required
+                      readonly
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                </form>
+                <form
+                  id="umkmForm"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg mb-4"
+                >
+                  <h4 class="text-2xl font-bold text-indigo-900 mb-4 mt-2">
+                    Potensi Alam
+                  </h4>
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="umkmName"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Nama Potensi Alam sebelumnya</label
+                    >
+                    <input
+                      type="text"
+                      id="umkmName"
+                      name="umkmName"
+                      placeholder="Masukkan Nama UMKM"
+                      required
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+
+                  <!--Deskripsi Singkat UMKM-->
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="umkmDescription"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Deskripsi potensi alam sebelumnya</label
+                    >
+                    <!-- Summernote Editor -->
+                    <div
+                      id="summernote-3"
+                      name="umkmDescription"
+                      class="bg-white border border-gray-300 rounded-lg p-4 ml-4"
+                    ></div>
+                  </div>
+                </form>
+                <!-- Form untuk Tambah Foto -->
+                <form
+                  class="bg-gray-100 rounded-lg shadow-lg p-6 mb-8"
+                  id="form-tambah-foto"
+                >
+                  <h4 class="text-2xl font-bold text-indigo-900 mb-4 mt-2">
+                    Tambah Galery
+                  </h4>
+                  <div id="foto-container">
+                    <!-- Foto pertama -->
+                    <div class="foto-item mb-6 ml-4">
+                      <h5 class="text-lg font-semibold mb-2">Produk 1</h5>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="mb-4 col-span-2">
+                          <label
+                            for="gambar-produk-1"
+                            class="block text-sm font-medium text-gray-700"
+                            >Gambar Potensi Alam</label
+                          >
+                          <input
+                            type="file"
+                            id="gambar-produk-1"
+                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            required
+                          />
+                        </div>
+
+                        <div class="mb-4 col-span-2 ml-3">
+                          <label
+                            for="deskripsi-produk-1"
+                            class="block text-sm font-medium text-gray-700"
+                            >Deskripsi Potensi Alam sebelumnya</label
+                          >
+                          <textarea
+                            id="deskripsi-produk-1"
+                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            placeholder="Deskripsi produk..."
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    id="tambah-foto"
+                    class="bg-green-600 text-white px-4 py-2 rounded-md"
+                  >
+                    Tambah Foto Lain
+                  </button>
+                </form>
+
+                <form
+                  id="form-tambah-kontak"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg"
+                >
+                  <h2 class="text-2xl font-semibold text-indigo-900 mb-6 mt-2">
+                    Lokasi
+                  </h2>
+
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="umkmAddress"
+                      class="block text-sm font-medium text-gray-700"
+                      >Alamat sebalumnya</label
+                    >
+                    <input
+                      type="text"
+                      id="umkmAddress"
+                      name="umkmAddress"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan alamat"
+                      required
+                    />
+                  </div>
+                </form>
+
+                <div class="flex justify-end mt-6">
+                  <button
+                    type="submit"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    Tambah
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Inisialisasi peta
+        const map = L.map("map").setView([-1.6962, 103.6486], 10); // Koordinat Merangin, Jambi
+
+        // Tambahkan layer OpenStreetMap
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        // Variabel untuk menyimpan marker
+        let marker;
+
+        // Fungsi untuk mendapatkan alamat dari koordinat menggunakan Nominatim
+        function getAddress(lat, lng) {
+          return fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`
+          )
+            .then((response) => response.json())
+            .then((data) => data.display_name || "Alamat tidak ditemukan")
+            .catch((error) => {
+              console.error("Error:", error);
+              return "Terjadi kesalahan";
+            });
+        }
+
+        // Menambahkan event listener pada klik peta
+        map.on("click", function (e) {
+          const lat = e.latlng.lat;
+          const lng = e.latlng.lng;
+
+          // Jika marker sudah ada, hapus marker sebelumnya
+          if (marker) {
+            map.removeLayer(marker);
+          }
+
+          // Tambahkan marker baru
+          marker = L.marker([lat, lng]).addTo(map);
+
+          // Ambil alamat dan update informasi di form
+          getAddress(lat, lng).then((address) => {
+            document.getElementById("umkmAddress").value = address;
+            document.getElementById("umkmLat").value = lat;
+            document.getElementById("umkmLng").value = lng;
+          });
+
+          // Kosongkan nama dan deskripsi dari form
+          document.getElementById("umkmName").value = "";
+          document.getElementById("umkmDescription").value = "";
+        });
+
+        // Menangani pengiriman formulir
+        document
+          .getElementById("umkmForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("umkmName").value;
+            const address = document.getElementById("umkmAddress").value;
+            const lat = document.getElementById("umkmLat").value;
+            const lng = document.getElementById("umkmLng").value;
+            const description =
+              document.getElementById("umkmDescription").value;
+
+            // Tindakan simpan data, seperti mengirim ke server atau menyimpan lokal
+            console.log("Nama UMKM:", name);
+            console.log("Alamat UMKM:", address);
+            console.log("Latitude:", lat);
+            console.log("Longitude:", lng);
+            console.log("Deskripsi:", description);
+
+            // Anda bisa menambahkan kode untuk mengirim data ke server di sini
+          });
+        let produkCounter = 1;
+
+        document
+          .getElementById("tambah-foto")
+          .addEventListener("click", function () {
+            produkCounter++;
+            const produkBaru = `
+            <div class="foto-item mb-6 ml-4">
+              <h5 class="text-lg font-semibold mb-2">Produk ${produkCounter}</h5>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="mb-4 col-span-2">
+                  <label for="gambar-produk-${produkCounter}" class="block text-sm font-medium text-gray-700">Gambar Produk</label>
+                  <input type="file" id="gambar-produk-${produkCounter}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+                </div>
+                <div class="mb-4 col-span-2 ml-3">
+                  <label for="deskripsi-produk-${produkCounter}" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                  <textarea id="deskripsi-produk-${produkCounter}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Deskripsi produk..." required></textarea>
+                </div>
+              </div>
+            </div>
+          `;
+            document
+              .getElementById("foto-container")
+              .insertAdjacentHTML("beforeend", produkBaru);
+          });
+      });
+    </script>
+    <!-- Summernote JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
+    <!-- Initialize Summernote editor -->
+    <script src="../summernote.js"></script>
+  </body>
+</html>

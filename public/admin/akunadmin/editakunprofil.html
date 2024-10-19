@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Akun</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--css summernote list-->
+    <style>
+      .note-editor .note-editable ol {
+        list-style-type: decimal !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+
+      .note-editor .note-editable ul {
+        list-style-type: disc !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-900 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-white hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 sm:p-6 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <div class="text-left mb-4 mr-16">
+              <!-- Formulir Edit Akun -->
+              <form
+                id="editForm"
+                class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md"
+              >
+                <h1 class="text-3xl font-bold mb-6 text-indigo-800">
+                  Edit Profil Akun
+                </h1>
+
+                <!-- Input Nama -->
+                <div class="mb-6">
+                  <label
+                    for="name"
+                    class="block text-gray-700 text-lg font-semibold mb-2"
+                    >Nama</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                    class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+
+                <!-- Input Email -->
+                <div class="mb-6">
+                  <label
+                    for="email"
+                    class="block text-gray-700 text-lg font-semibold mb-2"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Masukkan email"
+                    required
+                    class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+
+                <!-- Input Gambar Utama (Opsional) -->
+                <div class="mb-6">
+                  <label
+                    for="image"
+                    class="block text-gray-700 text-lg font-semibold mb-2"
+                  >
+                    Unggah Gambar Profil (Opsional)
+                  </label>
+                  <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/*"
+                    class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    onchange="previewImage(event)"
+                  />
+                  <p class="text-gray-600 text-sm mt-2">
+                    *Gambar tidak wajib diunggah.
+                  </p>
+                  <img
+                    id="imagePreview"
+                    src=""
+                    alt="Pratinjau Gambar"
+                    class="mt-4 hidden border rounded"
+                    style="max-width: 200px"
+                  />
+                </div>
+                <div class="border-indigo-900 border-b-2"></div>
+                <!-- Ganti Password -->
+                <div class="mb-6 mt-4">
+                  <h2 class="text-2xl font-semibold text-indigo-800 mb-4">
+                    Edit Password
+                  </h2>
+
+                  <div class="mb-4">
+                    <label
+                      for="current-password"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Password Saat Ini</label
+                    >
+                    <input
+                      type="password"
+                      id="current-password"
+                      name="current-password"
+                      placeholder="Masukkan Password saat ini"
+                      class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <label
+                      for="new-password"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Password Baru</label
+                    >
+                    <input
+                      type="password"
+                      id="new-password"
+                      name="new-password"
+                      placeholder="Masukkan Password baru"
+                      class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <label
+                      for="confirm-password"
+                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      >Konfirmasi Password Baru</label
+                    >
+                    <input
+                      type="password"
+                      id="confirm-password"
+                      name="confirm-password"
+                      placeholder="Konfirmasi Password baru"
+                      class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+
+                  <p class="text-gray-600 text-sm mt-2">
+                    *Isi bagian ini jika ingin mengganti Password.
+                  </p>
+                </div>
+
+                <!-- Tombol Simpan -->
+                <div class="flex justify-end">
+                  <button
+                    type="submit"
+                    class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    Simpan
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
+    <!-- Initialize Summernote editor -->
+    <script src="../summernote.js"></script>
+    <script>
+      // Contoh data yang disediakan secara hardcoded
+      const existingData = {
+        title: "Nama sebelumnya",
+        email: "emailsebelumnya@gmail.com",
+      };
+
+      // Mengisi field form dengan data
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("title").value = existingData.title;
+        document.getElementById("email").value = existingData.email;
+      });
+    </script>
+    <script>
+      // Misalnya, gambar sebelumnya akan dikirim dari server atau backend
+      const previousImageUrl = "path/to/previous-image.jpg"; // Ganti dengan URL gambar sebenarnya atau null jika tidak ada gambar
+
+      // Fungsi untuk menampilkan gambar sebelumnya jika ada
+      function showPreviousImage(imageUrl) {
+        const previousImageContainer = document.getElementById(
+          "previous-image-container"
+        );
+        const previousImageElement = document.getElementById("previous-image");
+
+        if (imageUrl) {
+          // Jika gambar ada, masukkan URL dan tampilkan elemen gambar
+          previousImageElement.src = imageUrl;
+          previousImageContainer.classList.remove("hidden");
+        } else {
+          // Jika tidak ada gambar, pastikan elemen tetap tersembunyi
+          previousImageContainer.classList.add("hidden");
+        }
+      }
+
+      // Panggil fungsi ini dengan URL gambar sebelumnya
+      showPreviousImage(previousImageUrl);
+    </script>
+    <!-- Script untuk Preview Gambar -->
+    <script>
+      function previewImage(event) {
+        const imagePreview = document.getElementById("imagePreview");
+        const file = event.target.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imagePreview.src = e.target.result; // Set the image source to the loaded data
+            imagePreview.classList.remove("hidden"); // Show the image
+          };
+          reader.readAsDataURL(file); // Read the file as a data URL
+        } else {
+          imagePreview.src = ""; // Reset the image source if no file is selected
+          imagePreview.classList.add("hidden"); // Hide the image
+        }
+      }
+    </script>
+  </body>
+</html>

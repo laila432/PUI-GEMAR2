@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persebaran Potensi Alam dan UMKM</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 overflow-y-auto mx-3">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <h3
+              class="text-3xl font-bold text-center font-poppins text-indigo-900 mt-14 mb-8 p-4"
+            >
+              Peta Persebaran Sumber Daya
+            </h3>
+            <div class="bg-gray-100 p-2">
+              <div id="map" class="h-96 p-2 z-0"></div>
+            </div>
+          </div>
+          <div class="bg-gray-200 p-4 mt-10">
+            <div
+              id="kecamatan1"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">Bangko</h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan1')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list1')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list1" style="display: none">
+              <li>
+                <a href="" class="text-blue-500 hover:text-blue-700"
+                  >potensi alam 1</a
+                >
+                <div class="flex">
+                  <a
+                    href="#"
+                    class="text-yellow-500 mx-1 hover:text-yellow-700"
+                    onclick="handleEdit(event)"
+                    title="edit potensi alam"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-red-500 mx-1 hover:text-red-700"
+                    onclick="confirmDelete()"
+                    title="hapus potensi alam"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="text-blue-500 hover:text-yellow-700"
+                  >potensi alam 2</a
+                >
+                <div class="flex">
+                  <a
+                    href="#"
+                    class="text-yellow-500 mx-1 hover:text-green-700"
+                    onclick="handleEdit(event)"
+                    title="edit potensi alam"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-red-500 mx-1 hover:text-red-700"
+                    onclick="confirmDelete()"
+                    title="hapus potensi alam"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="detailpersebaranumkm.html"
+                  class="text-blue-500 hover:text-blue-700"
+                  >umkm 1</a
+                >
+                <div class="flex">
+                  <a
+                    href="#"
+                    class="text-yellow-500 mx-1 hover:text-yellow-700"
+                    onclick="handleEdit(event)"
+                    title="edit umkm"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-red-500 mx-1 hover:text-red-700"
+                    onclick="confirmDelete()"
+                    title="hapus umkm"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="flex justify-end">
+                <a
+                  href="#"
+                  class="text-green-500 mx-1 hover:text-green-700"
+                  onclick="addModal()"
+                >
+                  <i class="fas fa-plus"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan2"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Bangko Barat
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan2')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list2')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list2" style="display: none">
+              <li>
+                <a href="#" class="text-blue-500 hover:text-blue-700"
+                  >potensi alam 1</a
+                >
+                <div class="flex">
+                  <a
+                    href="#"
+                    class="text-green-500 mx-1 hover:text-green-700"
+                    onclick="handleEdit(event)"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-red-500 mx-1 hover:text-red-700"
+                    onclick="confirmDelete()"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="text-blue-500 hover:text-blue-700"
+                  >potensi alam 2</a
+                >
+                <div class="flex">
+                  <a
+                    href="#"
+                    class="text-green-500 mx-1 hover:text-green-700"
+                    onclick="handleEdit(event)"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-red-500 mx-1 hover:text-red-700"
+                    onclick="confirmDelete()"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <a
+                  href="detailpersebaranumkm.html"
+                  class="text-blue-500 hover:text-blue-700"
+                  >umkm 1</a
+                >
+                <div class="flex">
+                  <a
+                    href="#"
+                    class="text-green-500 mx-1 hover:text-green-700"
+                    onclick="handleEdit(event)"
+                  >
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-red-500 mx-1 hover:text-red-700"
+                    onclick="confirmDelete()"
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+              </li>
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan3"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-3">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Batang Masumai
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan3')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list3')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list3" style="display: none">
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus" onclick="openAddModal()"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan4"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Jangkat
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan4')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list4')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list4" style="display: none">
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus" onclick="openAddModal()"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan5"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Jangkat Timur
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan5')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list5')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list5" style="display: none">
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus" onclick="openAddModal()"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan6"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Lembah Masurai
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan6')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list6')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list6" style="display: none">
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus" onclick="openAddModal()"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan7"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Margo Tabir
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan7')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list7')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list7" style="display: none">
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus" onclick="openAddModal()"></i>
+                </a>
+              </li>
+            </ul>
+
+            <div
+              id="kecamatan8"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Muara Siau
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan8')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list8')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list8" style="display: none">
+              <li class="flex justify-end">
+                <a href="#" class="text-green-500 mx-1 hover:text-green-700">
+                  <i class="fas fa-plus" onclick="openAddModal()"></i>
+                </a>
+              </li>
+            </ul>
+            <div
+              id="kecamatan9"
+              class="flex items-center justify-between mb-4 cursor-pointer"
+            >
+              <div class="flex-1">
+                <h2 id="kecamatanName" class="text-lg font-semibold">
+                  Pamenang
+                </h2>
+                <a
+                  href="#"
+                  class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+                  onclick="openEditModal()"
+                  title="edit kecamatan"
+                >
+                  <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                  href="#"
+                  class="text-red-500 mx-1 hover:text-red-700 text-sm"
+                  onclick="confirmDelete(event, 'kecamatan9')"
+                  title="Hapus kecamatan"
+                >
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-600"
+                onclick="toggleDropdown('list9')"
+              ></i>
+            </div>
+            <ul class="ml-4" id="list9" style="display: none">
+              <li class="flex justify-end">
+                <a
+                  href="#"
+                  class="text-green-500 mx-1 hover:text-green-700"
+                  onclick="openAddModal()"
+                >
+                  <i class="fas fa-plus"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex">
+            <a
+              href="#"
+              class="text-green-500 mx-1 hover:text-green-700"
+              onclick="openAddKecamatanModal()"
+            >
+              <i class="fas fa-plus"></i> Tambah List Kecamatan
+            </a>
+          </div>
+        </main>
+        <!-- Modalkecamatan -->
+        <!-- Modal untuk menambahkan kecamatan baru -->
+        <div
+          id="addKecamatanModal"
+          class="fixed inset-0 bg-gray-900 bg-opacity-50 items-center justify-center z-50 hidden"
+        >
+          <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-bold mb-4">Tambah Kecamatan Baru</h2>
+            <input
+              type="text"
+              id="newKecamatanName"
+              placeholder="Nama Kecamatan"
+              class="border p-2 mb-4 w-full"
+            />
+            <button
+              onclick="addNewKecamatan()"
+              class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+            >
+              Tambah
+            </button>
+            <button
+              onclick="closeAddKecamatanModal()"
+              class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 ml-2"
+            >
+              Batal
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+          id="addModal"
+          class="hidden fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 justify-center items-center z-50"
+        >
+          <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-bold mb-4">Pilih Jenis Tambahan</h2>
+            <a href="maptmbhadminpa.html">
+              <button
+                onclick="addNewElement('potensialam')"
+                class="block w-full text-left py-2 px-4 mb-2 hover:bg-green-200"
+              >
+                Potensi Alam
+              </button>
+            </a>
+            <a href="maptmbhadmin.html">
+              <button
+                onclick="addNewElement('umkm')"
+                class="block w-full text-left py-2 px-4 mb-2 hover:bg-blue-200"
+              >
+                UMKM
+              </button>
+            </a>
+
+            <button
+              onclick="closeAddModal()"
+              class="block w-full text-center py-2 px-4 bg-red-200 hover:bg-gray-300 rounded-lg text-gray-700 font-semibold"
+            >
+              Batal
+            </button>
+          </div>
+        </div>
+        <!-- Modal untuk menambah list kecamatan -->
+        <!-- Modal Edit -->
+        <div
+          id="editKecamatanModal"
+          class="fixed inset-0 items-center justify-center hidden"
+        >
+          <div class="bg-white p-4 rounded shadow-lg">
+            <h3 class="text-lg font-semibold mb-2">Edit Kecamatan</h3>
+            <input
+              type="text"
+              id="editKecamatanInput"
+              class="border p-2 w-full"
+              placeholder="Nama kecamatan"
+            />
+            <div class="mt-4 flex justify-end">
+              <button
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                onclick="saveEdit()"
+              >
+                Simpan
+              </button>
+              <button
+                class="ml-2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                onclick="closeEditModal()"
+              >
+                Batal
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../../map.js"></script>
+    <script>
+      function toggleDropdown(id) {
+        const list = document.getElementById(id);
+        list.style.display = list.style.display === "none" ? "block" : "none";
+      }
+
+      // Fungsi untuk membuka modal tambah
+      function openAddModal(type) {
+        document.getElementById("addModal").classList.remove("hidden");
+        // Handle type based actions here
+        console.log("Adding new element of type:", type);
+      }
+
+      // Menggunakan event delegation untuk menangani klik pada ikon "Tambah" di list1 (Potensi Alam)
+      document
+        .getElementById("list1")
+        .addEventListener("click", function (event) {
+          if (event.target.classList.contains("fa-plus")) {
+            openAddModal("potensialam");
+          }
+        });
+
+      // Menggunakan event delegation untuk menangani klik pada ikon "Tambah" di list2 (UMKM)
+      document
+        .getElementById("list2")
+        .addEventListener("click", function (event) {
+          if (event.target.classList.contains("fa-plus")) {
+            openAddModal("umkm");
+          }
+        });
+
+      // Fungsi untuk menutup modal tambah
+      function openAddModal() {
+        const modal = document.getElementById("addModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeAddModal() {
+        const modal = document.getElementById("addModal");
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      }
+
+      // Fungsi untuk menambahkan elemen baru (bisa dikembangkan sesuai kebutuhan)
+      function addNewElement(type) {
+        // Handle adding new element based on type
+        console.log("Adding new element of type:", type);
+        closeAddModal(); // Menutup modal setelah penanganan selesai
+      }
+    </script>
+    <script>
+      // Fungsi untuk membuka modal
+
+      function openAddKecamatanModal() {
+        const modal = document.getElementById("addKecamatanModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeAddKecamatanModal() {
+        const modal = document.getElementById("addKecamatanModal");
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      }
+
+      // Fungsi untuk menambahkan kecamatan baru
+      function addNewKecamatan() {
+        const newKecamatanName =
+          document.getElementById("newKecamatanName").value;
+
+        if (newKecamatanName) {
+          // Cari ul terakhir yang ada berdasarkan ID
+          const lists = document.querySelectorAll('ul[id^="list"]');
+          const lastList = lists[lists.length - 1];
+          const lastIdNumber = parseInt(lastList.id.replace("list", ""), 10);
+          const newIdNumber = lastIdNumber + 1;
+
+          // Buat elemen div baru untuk kecamatan tersebut
+          const newDiv = document.createElement("div");
+          newDiv.className =
+            "flex items-center justify-between mb-4 cursor-pointer";
+          newDiv.setAttribute(
+            "onclick",
+            `toggleDropdown('list${newIdNumber}')`
+          );
+          newDiv.setAttribute("id", `kecamatan${newIdNumber}`);
+          newDiv.innerHTML = `
+            <div class="flex-1">
+      <h2 class="text-lg font-semibold">${newKecamatanName}</h2>
+      <a
+        href="#"
+        class="text-yellow-500 mx-1 hover:text-blue-700 text-sm"
+        onclick="openEditModal('${newDiv.id}')"
+        title="Edit Kecamatan"
+      >
+        <i class="fa-solid fa-pen"></i>
+      </a>
+      <a
+        href="#"
+        class="text-red-500 mx-1 hover:text-red-700 text-sm"
+        onclick="confirmDelete(event, '${newDiv.id}')"
+        title="Hapus Kecamatan"
+      >
+        <i class="fa-solid fa-trash"></i>
+      </a>
+    </div>
+            <i class="fas fa-chevron-down text-gray-600"></i>
+          `;
+
+          // Buat elemen ul baru untuk item-item kecamatan
+          const newUl = document.createElement("ul");
+          newUl.className = "ml-4";
+          newUl.id = `list${newIdNumber}`;
+          newUl.style.display = "none";
+          newUl.innerHTML = `
+            <li class="flex justify-end">
+              <a href="#" class="text-green-500 mx-1 hover:text-green-700" onclick="openAddModal()">
+                <i class="fas fa-plus"></i>
+              </a>
+            </li>
+          `;
+
+          // Tambahkan elemen baru ke kontainer utama
+          const container = document.querySelector(".bg-gray-200");
+          container.appendChild(newDiv); // Menambahkan elemen div di akhir kontainer
+          container.appendChild(newUl); // Menambahkan elemen ul di akhir kontainer
+
+          // Tutup modal setelah penambahan kecamatan baru
+          closeAddKecamatanModal();
+        } else {
+          alert("Nama kecamatan tidak boleh kosong!");
+        }
+      }
+    </script>
+    <script>
+      function confirmDelete(event, elementId) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        Swal.fire({
+          title: "Apakah Anda yakin?",
+          text: "Anda tidak akan dapat mengembalikan ini!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const elementToDelete = document.getElementById(elementId);
+            if (elementToDelete) {
+              elementToDelete.remove();
+              Swal.fire("Dihapus!", "Item telah dihapus.", "success");
+            }
+          }
+        });
+      }
+    </script>
+
+    <script>
+      // Fungsi untuk membuka modal edit
+      // Fungsi untuk membuka modal edit
+      function openEditModal() {
+        const modal = document.getElementById("editKecamatanModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      // Fungsi untuk menutup modal edit
+      function closeEditModal() {
+        const modal = document.getElementById("editKecamatanModal");
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      }
+
+      // Fungsi untuk menyimpan perubahan nama kecamatan
+      function saveEdit() {
+        const newName = document.getElementById("editKecamatanInput").value;
+
+        if (newName) {
+          document.getElementById("kecamatanName").textContent = newName;
+          closeEditModal();
+        } else {
+          alert("Nama kecamatan tidak boleh kosong!");
+        }
+      }
+    </script>
+
+    <!--hapus kecamatan-->
+    <script>
+      function handleKecamatanDelete(event) {
+        event.preventDefault(); // Prevent the default link behavior
+
+        if (confirm("Apakah Anda yakin ingin menghapus kecamatan ini?")) {
+          const elementToDelete = event.target.closest("#kecamatanDiv");
+          if (elementToDelete) {
+            elementToDelete.remove();
+          }
+        }
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

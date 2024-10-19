@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kegiatan</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tambahkan SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main class="flex-1 bg-gray-100 p-4 overflow-y-auto mx-3">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <h1 class="text-4xl font-bold text-indigo-900 mt-6 mb-5">
+              Kegiatan
+            </h1>
+
+            <!-- Kegiatan 1 -->
+
+            <div
+              class="mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            >
+              <a href="detail_kegiatan_1.html">
+                <h2 class="text-lg font-semibold text-indigo-900 mb-2 mt-14">
+                  Nama Kegiatan 1
+                </h2>
+                <p class="text-sm text-gray-500 mb-2">01 Januari 2024</p>
+                <img
+                  src="../../img/kegiatan/dok1.jpg"
+                  alt="Gambar Kegiatan 1"
+                  class="mb-2 rounded-lg h-96 w-full object-cover"
+                />
+                <p class="text-gray-800 leading-relaxed">
+                  Deskripsi singkat tentang kegiatan ini.
+                </p>
+              </a>
+              <div class="flex items-center mb-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-kegiatan-id="1"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-kegiatan-id="1">2</span>
+                  <!-- Sudah ada 2 komentar -->
+                </button>
+              </div>
+              <div class="flex justify-center mt-4">
+                <a
+                  href="edtkegiatan.html"
+                  class="mx-2 text-yellow-600 hover:text-gray-900"
+                >
+                  <button type="button">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </a>
+
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Kegiatan 2 -->
+
+            <div
+              class="mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            >
+              <a href="detail_kegiatan_2.html">
+                <h2 class="text-lg font-semibold text-indigo-900 mb-2">
+                  Nama Kegiatan 2
+                </h2>
+                <p class="text-sm text-gray-500 mb-2">02 Februari 2024</p>
+                <img
+                  src="../../img/kegiatan/dok2.jpg"
+                  alt="Gambar Kegiatan 2"
+                  class="mb-2 rounded-lg h-96 w-full object-cover"
+                />
+                <p class="text-gray-800 leading-relaxed">
+                  Deskripsi singkat tentang kegiatan ini.
+                </p>
+              </a>
+              <div class="flex items-center mb-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-kegiatan-id="kegiatan2"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-kegiatan-id="kegiatan2"
+                    >0</span
+                  >
+                </button>
+              </div>
+              <!-- Edit and Delete Buttons -->
+              <div class="flex justify-center mt-4">
+                <a
+                  href="edtkegiatan.html"
+                  class="mx-2 text-yellow-600 hover:text-gray-900"
+                >
+                  <button type="button">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </a>
+
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Kegiatan 3 -->
+
+            <div
+              class="mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+            >
+              <a href="detail_kegiatan_3.html">
+                <h2 class="text-lg font-semibold text-indigo-900 mb-2">
+                  Nama Kegiatan 2
+                </h2>
+                <p class="text-sm text-gray-500 mb-2">02 Februari 2024</p>
+                <img
+                  src="../../img/kegiatan/dok3.jpg"
+                  alt="Gambar Kegiatan 3"
+                  class="mb-2 rounded-lg h-96 w-full object-cover"
+                />
+                <p class="text-gray-800 leading-relaxed">
+                  Deskripsi singkat tentang kegiatan ini.
+                </p>
+              </a>
+              <div class="flex items-center mb-4 space-x-4">
+                <button
+                  class="flex items-center text-gray-400 hover:text-blue-400 transition duration-300 commentBtn"
+                  data-kegiatan-id="kegiatan3"
+                >
+                  <i class="far fa-comment mr-1"></i>
+                  <span class="commentCount" data-kegiatan-id="kegiatan3"
+                    >0</span
+                  >
+                </button>
+              </div>
+              <div class="flex justify-center mt-4">
+                <a
+                  href="edtkegiatan.html"
+                  class="mx-2 text-yellow-600 hover:text-gray-900"
+                >
+                  <button type="button">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </a>
+
+                <button
+                  class="mx-2 text-red-600 hover:text-gray-900"
+                  onclick="confirmDelete()"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Floating Action Button -->
+            <a href="tmbhkegiatan.html">
+              <button
+                class="fixed bottom-4 right-4 bg-yellow-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mr-4"
+                aria-label="Tambah Tim"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </a>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      id="commentModal"
+      class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 justify-center items-center z-50 modal"
+    >
+      <div class="modal-content w-150 p-6 bg-white rounded-lg shadow-lg">
+        <div class="modal-header">
+          <button
+            id="closeModal"
+            class="text-gray-500 hover:text-gray-700 text-xl"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="modalContent" class="modal-body">
+          <!-- Comments will be dynamically added here -->
+        </div>
+        <div class="modal-footer">
+          <!-- Footer content if needed -->
+        </div>
+      </div>
+    </div>
+    <script src="../jsadmin.js"></script>
+    <!-- Tambahkan SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function confirmDelete() {
+        Swal.fire({
+          title: "Apakah Anda yakin?",
+          text: "Anda tidak akan dapat mengembalikan ini!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
+          customClass: {
+            popup: "small-swal-popup", // Menambahkan kelas kustom untuk mengubah ukuran
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Dihapus!", "Item telah dihapus.", "success");
+          }
+        });
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("commentModal");
+        const closeModalBtn = document.getElementById("closeModal");
+        let currentKegiatanId = null;
+
+        const sessionComments = {
+          1: [
+            {
+              id: "1",
+              name: "Pengunjung 1",
+              text: "Ini komentar pertama.",
+              parentId: null,
+            },
+            {
+              id: "2",
+              name: "Pengunjung 2",
+              text: "Ini komentar kedua.",
+              parentId: null,
+            },
+          ],
+        };
+
+        document.querySelectorAll(".commentBtn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            currentKegiatanId = btn.getAttribute("data-kegiatan-id");
+            const modalContent = document.getElementById("modalContent");
+
+            fetchComments(currentKegiatanId, modalContent);
+
+            modal.classList.remove("hidden");
+
+            // Pastikan handler submit ditambahkan setiap kali modal muncul
+            modalContent
+              .querySelector(".submitComment")
+              .addEventListener("click", function () {
+                const commentText =
+                  modalContent.querySelector("textarea").value;
+                const commentName = "Admin";
+                const commentsContainer =
+                  modalContent.querySelector(".comments");
+
+                if (commentText) {
+                  const commentId = Date.now().toString(); // Generate unique ID
+                  const commentItem = createCommentItem(
+                    commentId,
+                    commentName,
+                    commentText,
+                    currentKegiatanId
+                  );
+                  commentsContainer.appendChild(commentItem);
+
+                  modalContent.querySelector("textarea").value = "";
+
+                  saveCommentInSession(
+                    currentKegiatanId,
+                    commentId,
+                    commentName,
+                    commentText
+                  );
+
+                  handleReplyButtonClick(commentItem);
+                  handleDeleteButtonClick(commentItem); // Apply delete handler to new comment
+                  updateCommentCount(currentKegiatanId);
+                }
+              });
+          });
+        });
+
+        function createCommentItem(
+          commentId,
+          name,
+          text,
+          kegiatanId,
+          parentId = null
+        ) {
+          const commentItem = document.createElement("div");
+          commentItem.classList.add(
+            "comment-item",
+            "border-t",
+            "border-gray-300",
+            "mt-2",
+            "pt-2"
+          );
+          if (parentId) {
+            commentItem.classList.add("ml-8"); // Indent for replies
+          }
+          commentItem.setAttribute("data-comment-id", commentId);
+          commentItem.setAttribute("data-kegiatan-id", kegiatanId);
+          commentItem.innerHTML = `
+      <strong>${name}</strong>: ${text}
+      <button class="replyBtn text-blue-400 hover:underline text-sm ml-2">Balas</button>
+      <button class="deleteBtn text-red-400 hover:underline text-sm ml-2">Hapus</button>
+      <div class="replies mt-2"></div>
+    `;
+          return commentItem;
+        }
+
+        function fetchComments(kegiatanId, container) {
+          container.innerHTML = `
+      <textarea class="w-full p-2 mb-2 text-gray-800 border border-gray-300 rounded-md" rows="3" placeholder="Tulis komentar anda..."></textarea>
+      <button class="submitComment text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-700">Kirim</button>
+      <div class="comments mt-4 text-sm text-gray-700"></div>
+    `;
+
+          const comments = sessionComments[kegiatanId] || [];
+          const commentsContainer = container.querySelector(".comments");
+          const commentItems = {};
+
+          comments.forEach((comment) => {
+            const commentItem = createCommentItem(
+              comment.id,
+              comment.name,
+              comment.text,
+              kegiatanId,
+              comment.parentId
+            );
+            commentItems[comment.id] = commentItem;
+
+            if (comment.parentId) {
+              const parentComment = commentItems[comment.parentId];
+              parentComment.querySelector(".replies").appendChild(commentItem);
+            } else {
+              commentsContainer.appendChild(commentItem);
+            }
+
+            handleReplyButtonClick(commentItem);
+            handleDeleteButtonClick(commentItem); // Add delete handler to existing comments
+          });
+        }
+
+        function saveCommentInSession(
+          kegiatanId,
+          commentId,
+          name,
+          text,
+          parentId = null
+        ) {
+          if (!sessionComments[kegiatanId]) {
+            sessionComments[kegiatanId] = [];
+          }
+          sessionComments[kegiatanId].push({
+            id: commentId,
+            name,
+            text,
+            parentId,
+          });
+        }
+
+        function handleReplyButtonClick(commentItem) {
+          commentItem
+            .querySelector(".replyBtn")
+            .addEventListener("click", function () {
+              const replyForm = document.createElement("div");
+              replyForm.classList.add(
+                "mt-4",
+                "bg-gray-200",
+                "p-4",
+                "rounded-md",
+                "ml-8"
+              );
+              replyForm.innerHTML = `
+        <textarea class="w-full p-2 mb-2 text-gray-800 border border-gray-300 rounded-md" rows="2" placeholder="Tulis balasan..."></textarea>
+        <button class="submitReply text-white bg-green-600 px-4 py-2 rounded-md hover:bg-green-700">Kirim</button>
+      `;
+              commentItem.querySelector(".replies").appendChild(replyForm);
+
+              replyForm
+                .querySelector(".submitReply")
+                .addEventListener("click", function () {
+                  const replyText = replyForm.querySelector("textarea").value;
+                  const replyName = "Admin";
+
+                  if (replyText) {
+                    const replyId = Date.now().toString();
+                    const replyItem = createCommentItem(
+                      replyId,
+                      replyName,
+                      replyText,
+                      commentItem.getAttribute("data-kegiatan-id"),
+                      commentItem.getAttribute("data-comment-id")
+                    );
+                    commentItem
+                      .querySelector(".replies")
+                      .appendChild(replyItem);
+
+                    replyForm.querySelector("textarea").value = "";
+                    replyForm.remove();
+
+                    saveCommentInSession(
+                      commentItem.getAttribute("data-kegiatan-id"),
+                      replyId,
+                      replyName,
+                      replyText,
+                      commentItem.getAttribute("data-comment-id")
+                    );
+                    updateCommentCount(
+                      commentItem.getAttribute("data-kegiatan-id")
+                    );
+                    handleReplyButtonClick(replyItem);
+                    handleDeleteButtonClick(replyItem); // Apply delete handler to new reply
+                  }
+                });
+            });
+        }
+
+        function handleDeleteButtonClick(commentItem) {
+          commentItem
+            .querySelector(".deleteBtn")
+            .addEventListener("click", function () {
+              const kegiatanId = commentItem.getAttribute("data-kegiatan-id");
+              const commentId = commentItem.getAttribute("data-comment-id");
+
+              const confirmDelete = confirm(
+                "Apakah Anda yakin ingin menghapus komentar ini?"
+              );
+              if (confirmDelete) {
+                sessionComments[kegiatanId] = sessionComments[
+                  kegiatanId
+                ].filter((comment) => comment.id !== commentId);
+                commentItem.remove();
+                updateCommentCount(kegiatanId);
+              }
+            });
+        }
+
+        function updateCommentCount(kegiatanId) {
+          const commentCountElement = document.querySelector(
+            `.commentCount[data-kegiatan-id="${kegiatanId}"]`
+          );
+          if (commentCountElement) {
+            const comments = sessionComments[kegiatanId] || [];
+            commentCountElement.textContent = comments.length;
+          }
+        }
+
+        closeModalBtn.addEventListener("click", function () {
+          modal.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
