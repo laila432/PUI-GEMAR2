@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profil Tim</title>
+    <link href="../../../css/outputadmin.css" rel="stylesheet" />
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--css summernote list-->
+    <style>
+      .note-editor .note-editable ol {
+        list-style-type: decimal !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+
+      .note-editor .note-editable ul {
+        list-style-type: disc !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="../../sumberdayaadmin/artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="../../sumberdayaadmin/kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="../../sumberdayaadmin/persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 sm:p-6 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <form action="#" method="POST" class="space-y-4 max-w-4xl mx-auto">
+              <h1 class="text-3xl font-bold mb-6 mt-3 text-indigo-800">
+                Edit Profil Tim
+              </h1>
+              <!-- Divisi -->
+              <div>
+                <label
+                  for="divisi"
+                  class="block text-md font-bold text-gray-700"
+                  >Divisi</label
+                >
+                <select
+                  id="divisi"
+                  name="divisi"
+                  required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
+                >
+                  <option value="">Pilih Divisi</option>
+                  <option value="divisi1">
+                    Divisi Kepemimpinan Organisasi
+                  </option>
+                  <option value="divisi2">
+                    Divisi Penguatan Kapasistas Kelembagaan
+                  </option>
+                  <option value="divisi3">
+                    Divisi Penguatan Edukasi dan Konservasi
+                  </option>
+                  <option value="divisi4">
+                    Divisi Pengembangan dan Komersialisasi
+                  </option>
+                </select>
+              </div>
+              <!-- Nama -->
+              <div>
+                <label for="nama" class="block text-md font-bold text-gray-700"
+                  >Nama</label
+                >
+                <input
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  placeholder="Masukkan nama lengkap"
+                  required
+                  class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              <!-- Foto (Gambar) -->
+              <!-- Foto Sebelumnya -->
+              <div>
+                <label for="foto" class="block text-md font-bold text-gray-700"
+                  >Foto Saat Ini</label
+                >
+                <img
+                  id="foto-sebelumnya"
+                  class="w-32 h-32 border-2 border-gray-300 mb-4"
+                  src=""
+                  alt="Foto sebelumnya"
+                />
+              </div>
+
+              <!-- Foto (Gambar Baru) -->
+              <div>
+                <label for="foto" class="block text-md font-bold text-gray-700"
+                  >Ganti Foto (unggah gambar baru)</label
+                >
+                <input
+                  type="file"
+                  id="foto"
+                  name="foto"
+                  accept="image/*"
+                  class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
+                />
+                <p class="text-xs text-gray-500 mt-1">
+                  Format yang didukung: JPG, PNG, GIF. Ukuran file maksimal:
+                  5MB.
+                </p>
+              </div>
+
+              <!-- Keanggotaan -->
+              <div>
+                <label
+                  for="keanggotaan"
+                  class="block text-md font-bold text-gray-700"
+                  >Keanggotaan</label
+                >
+                <input
+                  type="text"
+                  id="keanggotaan"
+                  name="keanggotaan"
+                  placeholder="Masukkan keanggotaan dalam tim/organisasi"
+                  class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              <!-- Bidang Keahlian-->
+              <div>
+                <label
+                  for="bidang"
+                  class="block text-md font-bold text-gray-700"
+                  >Bidang Keahlian</label
+                >
+                <input
+                  type="text"
+                  id="bidang"
+                  name="bidang"
+                  placeholder="Masukkan bidang keahlian"
+                  class="w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+
+              <!-- Tombol Submit -->
+              <div class="flex justify-end">
+                <button
+                  type="submit"
+                  class="bg-amber-500 text-white font-bold px-4 py-2 rounded-md hover:bg-amber-600 focus:outline-none focus:bg-amber-700"
+                >
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../jsadmin.js"></script>
+    <script>
+      // Function to set profile image if available
+      function setProfileImage(imageSrc) {
+        var profileImage = document.getElementById("profile-image");
+        var profileIcon = document.getElementById("profile-icon");
+
+        if (imageSrc && imageSrc.trim() !== "") {
+          profileImage.src = imageSrc; // Set the image source
+          profileImage.classList.remove("hidden"); // Show the image
+          profileIcon.style.display = "none"; // Hide the icon completely
+        } else {
+          profileImage.classList.add("hidden"); // Ensure the image is hidden
+          profileIcon.style.display = "block"; // Show the icon
+        }
+      }
+
+      // Example usage: Set the image path or leave it empty
+      setProfileImage("../../../img/angt/pas2.jpg"); // Replace with your image path or keep it empty
+    </script>
+    <script>
+      // Contoh data yang disediakan secara hardcoded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Data yang ada sebelumnya termasuk gambar
+        var existingData = {
+          divisi: "divisi3", // Nilai ini harus cocok dengan nilai salah satu option
+          nama: "Anggit Prima Nugraha, S.Si., M.Sc.",
+          keanggotaan: "Anggota",
+          bidang: "Zoologi",
+          foto: "../../../img/angt/Anggit Prima Nugraha, S.Si., M.Sc..png", // Path ke gambar yang ada sebelumnya
+        };
+
+        // Atur nilai elemen select
+        var selectElement = document.getElementById("divisi");
+        selectElement.value = existingData.divisi;
+
+        document.getElementById("nama").value = existingData.nama;
+        document.getElementById("keanggotaan").value = existingData.keanggotaan;
+        document.getElementById("bidang").value = existingData.bidang;
+
+        // Menampilkan foto yang ada sebelumnya
+        var imgElement = document.getElementById("foto-sebelumnya");
+        imgElement.src = existingData.foto;
+      });
+    </script>
+  </body>
+</html>

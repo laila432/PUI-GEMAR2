@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Struktur Organisasi</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--css summernote list-->
+    <style>
+      .note-editor .note-editable ol {
+        list-style-type: decimal !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+
+      .note-editor .note-editable ul {
+        list-style-type: disc !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="../sumberdayaadmin/artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="../sumberdayaadmin/kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="../sumberdayaadmin/persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 sm:p-6 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <div class="max-w-full p-2 bg-gray-100 shadow-md rounded-lg">
+              <h1 class="text-4xl font-bold text-indigo-900 mb-16 mt-4">
+                Struktur Organisasi
+              </h1>
+              <!--konten strurktur organisasi-->
+
+              <div
+                id="image-container"
+                class="flex justify-center mt-6 mb-2"
+              ></div>
+
+              <div class="max-w-full p-12 bg-white shadow-md rounded-lg">
+                <h1 class="text-4xl font-bold text-indigo-900 mb-15">Divisi</h1>
+
+                <ol
+                  id="division-list"
+                  class="text-gray-800 mt-6 leading-relaxed list-decimal list-inside text-justify"
+                >
+                  <!-- Daftar divisi akan ditambahkan di sini -->
+                </ol>
+              </div>
+            </div>
+            <!-- Floating Action Button -->
+            <a href="editstukturoradmin.html">
+              <button
+                class="fixed bottom-4 right-4 bg-amber-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-opacity-50 mr-4"
+                aria-label="Tambah Tim"
+              >
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+            </a>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script>
+      // Data untuk gambar dan divisi
+      const imageSrc = "../../img/strukturorgns/strorgnisasi.png"; // Ganti dengan path gambar yang benar
+      const divisions = [
+        "Divisi Kepemimpinan Organisasi (Inti): Divisi Kepemimpinan adalah bagian dari struktur organisasi PUI GEMAR UNJA yang bertanggung jawab untuk mengatur, mengelola, dan memimpin seluruh kegiatan di dalam organisasi PUI tersebut. Divisi ini biasanya terdiri dari individu-individu yang memiliki posisi strategis, seperti ketua, penanggung jawab, sekretaris, bendahara, dan pengarah.",
+
+        "Divisi Penguatan Kapasitas Kelembagaan: Divisi Penguatan Kapasitas Kelembagaan adalah bagian dari struktur organisasi PUI GEMAR UNJA yang bertugas untuk meningkatkan kemampuan dan efektivitas lembaga dalam menjalankan fungsinya. Divisi ini berfokus pada pengembangan sumber daya manusia, manajemen, dan struktur organisasi, serta penguatan sistem dan proses yang ada.",
+
+        "Divisi Penguatan Edukasi dan Konservasi: Divisi Bidang Penguatan Edukasi dan Konservasi adalah bagian dari struktur organisasi PUI GEMAR UNJA yang berfokus pada peningkatan pendidikan serta konservasi sumber daya alam dan lingkungan. Divisi ini bertugas untuk mengembangkan dan melaksanakan program-program edukasi yang bertujuan untuk meningkatkan kesadaran, pemahaman, dan keterlibatan masyarakat dalam isu-isu lingkungan dan konservasi.",
+
+        "Divisi Pengembangan dan Komersialisasi: Divisi Bidang Pengembangan dan Komersialisasi adalah bagian dari struktur organisasi PUI GEMAR UNJA yang bertugas untuk mengembangkan produk, layanan, atau inovasi dan memasarkan serta menjadikannya komersial yang terdiri dari pengembangan penelitian dan penyebaran informasi tentang keanekaragaman UMKM di wilayah Geopark Merangin Jambi.",
+      ];
+
+      // Ambil elemen HTML untuk gambar dan daftar divisi
+      const imageContainer = document.getElementById("image-container");
+      const divisionList = document.getElementById("division-list");
+
+      // Tambahkan gambar ke dalam kontainer gambar
+      const img = document.createElement("img");
+      img.src = imageSrc;
+      img.alt = "Struktur Organisasi"; // Tambahkan alt text untuk aksesibilitas
+      imageContainer.appendChild(img);
+
+      // Tambahkan item divisi ke dalam daftar dengan class custom-li
+      divisions.forEach((division) => {
+        const listItem = document.createElement("li"); // Membuat elemen <li>
+        listItem.textContent = division; // Mengisi teks dari divisi
+        listItem.classList.add("custom-li", "pl-2"); // Menambahkan class custom-li dan padding left
+        divisionList.appendChild(listItem); // Menambahkan <li> ke <ol>
+      });
+    </script>
+  </body>
+</html>
