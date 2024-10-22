@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tim PUI GEMAR</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="../sumberdayaadmin/artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
+                href="../sumberdayaadmin/kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="../sumberdayaadmin/persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 sm:p-6 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <h1 class="text-4xl font-bold text-indigo-900 mb-6 ml-3">Team</h1>
+            <!-- divisi 1 -->
+            <div class="team-section">
+              <h2 class="text-2xl font-bold text-indigo-900 ml-4 border-b-2">
+                Divisi Kepemimpinan Organisasi (Inti)
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 ml-4"
+              >
+                <!-- Team member structure remains the same -->
+
+                <!-- Team member 1 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmprfhelmi.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Prof. Dr. Helmi, S.H., M.H"
+                      alt="Team Member 1"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Prof. Dr. Helmi, S.H., M.H
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-sm sm:text-sm md:text-base mb-2 sm:mb-4"
+                        >
+                          Hukum Administrasi Negara , Hukum Lingkungan
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center mt-2">
+                        <a href="edttimprofhelmi.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 2 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmDradey.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Dr. Ade Octavia, S.E., M.M..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Dr. Ade Octavia, S.E., M.M.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Manajemen Industri
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center mt-2">
+                        <a href="edttimdrade.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 3 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmDrLenny.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Dr. Lenny Marlinda, S.T., M.T..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Dr. Lenny Marlinda, S.T., M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Teknologi Reaksi Kimia , Teknologi Bioenergi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimdrlenny.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 4 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmDMMagdalena.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/D.M. Magdalena Ritonga, S.T., M.T..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-xl sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-2"
+                        >
+                          D.M. Magdalena Ritonga, S.T., M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base"
+                        >
+                          Geologi , Geofisika , Ilmu Atmosfer, Meteorologi dan
+                          Klimatologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimdmmagdalena.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 5 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a href="detailtimadmNiken.html" class="flex flex-col h-full">
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Niken Rarasati, S.Si., M.Si..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Niken Rarasati, S.Si., M.Si.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Matematika Terapan
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center mt-2">
+                        <a href="edttimniken.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- Repeat the same structure for other members -->
+
+                <!-- ... -->
+              </div>
+            </div>
+
+            <!-- Divisi  2 -->
+            <div class="team-section">
+              <h2
+                class="text-2xl font-bold text-indigo-900 ml-4 mt-10 border-b-2"
+              >
+                Divisi Penguatan Kapasitas Kelembagaan
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 ml-4"
+              >
+                <!-- Team member structure remains the same -->
+
+                <!-- Team member 1 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmProfSutrisno.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Prof. Drs. H. Sutrisno, M.Sc., Ph.D.jpg"
+                      alt="Team Member 1"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Prof. Drs. H. Sutrisno, M.Sc., Ph.D
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-sm sm:text-sm md:text-base mb-2 sm:mb-4"
+                        >
+                          Kimia Analitik
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimdrssutrisno.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 2 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmbenedika.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Benedika Ferdian H, S.Kom., M.Kom..jpeg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Benedika Ferdian H, S.Kom., M.Kom.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Informatika
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimbenedika.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 3 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmIrhari.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Ir.Hari Wiki Utama, S.T., M.Eng..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Ir.Hari Wiki Utama, S.T., M.Eng.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Geologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimIrhariwiki.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 4 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col min-h-94"
+                >
+                  <a
+                    href="detailtimadmIrAditya.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/D.M. Magdalena Ritonga, S.T., M.T..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div
+                      class="pt-3 pb-2 px-1 flex flex-col justify-between flex-grow"
+                    >
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Ir. Aditya Denny Prabawa, S.T., M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Teknik Sumberdaya Geologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimIraditya.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Repeat the same structure for other members -->
+
+                <!-- ... -->
+              </div>
+            </div>
+            <!-- Divisi 3 -->
+            <div class="team-section">
+              <h2
+                class="text-2xl font-bold text-indigo-900 ml-4 mt-10 border-b-2"
+              >
+                Divisi Penguatan Edukasi dan Konservasi
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 ml-4"
+              >
+                <!-- Team member structure remains the same -->
+
+                <!-- Team member 1 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmDrsJodion.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Dr. Drs. Jodion Siburian, M.Si..png"
+                      alt="Team Member 1"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div
+                      class="px-1 py-2 flex flex-col justify-between flex-grow"
+                    >
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Dr. Drs. Jodion Siburian, M.Si.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-sm sm:text-sm md:text-base mb-1 sm:mb-4"
+                        >
+                          Studi Pendidikan , Pengembangan Profesi Guru ,
+                          Genetika , Zoologi , Studi Kurikulum
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimdrsjodion.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 2 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a href="detailtimadmdawam.html" class="flex flex-col h-full">
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Dawam Supriyogi, S.Pd., M.Sc..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Dawam Supriyogi, S.Pd., M.Sc.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Ekologi dan Evolusi , Ekologi Wilayah
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimdawam.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 3 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmanggit.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Anggit Prima Nugraha, S.Si., M.Sc..png"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Anggit Prima Nugraha, S.Si., M.Sc.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Zoologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimanggit.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 4 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col min-h-94"
+                >
+                  <a
+                    href="detailtimadmarimukti.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Ari Mukti Wardoyo Adi, M.A..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div
+                      class="pt-3 pb-2 px-1 flex flex-col justify-between flex-grow"
+                    >
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Ari Mukti Wardoyo Adi, M.A.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Arkeologi Lingkungan , Geografi Budaya , Arkeologi
+                          Sejarah
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimarimukti.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Repeat the same structure for other members -->
+
+                <!-- ... -->
+              </div>
+            </div>
+            <!-- Divisi 4 -->
+            <div class="team-section">
+              <h2
+                class="text-2xl font-bold text-indigo-900 ml-4 mt-10 border-b-2"
+              >
+                Divisi Pengembangan dan Komersialisasi
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 ml-4"
+              >
+                <!-- Team member structure remains the same -->
+
+                <!-- Team member 1 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmIryuliamorsa.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Ir. Yulia Morsa Said, M.T..jpg"
+                      alt="Team Member 1"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Ir. Yulia Morsa Said, M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-sm sm:text-sm md:text-base mb-2 sm:mb-4"
+                        >
+                          Geologi , Geomatika
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimiryulia.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 2 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a
+                    href="detailtimadmJuventa.html"
+                    class="flex flex-col h-full"
+                  >
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Juventa, S.T., M.T..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Juventa, S.T., M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Geologi , Geofisika , Teknik Sumberdaya Geologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimjuventa.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 3 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col h-94"
+                >
+                  <a href="detailtimadmanggi.html" class="flex flex-col h-full">
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Anggi Deliana Siregar., S.T., M.T..png"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Anggi Deliana Siregar, S.T., M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Geologi , Ilmu Atmosfer, Meteorologi dan Klimatologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimanggi.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Team member 4 -->
+                <div
+                  class="team-member bg-white rounded-lg overflow-hidden shadow-md transform transition duration-300 hover:scale-105 flex flex-col min-h-94"
+                >
+                  <a href="detailtimadmsarwo.html" class="flex flex-col h-full">
+                    <!-- Gambar -->
+                    <img
+                      src="../../img/angt/Sarwo Sucitra Amin, M.T..jpg"
+                      alt="Team Member 2"
+                      class="object-cover w-full h-48 sm:h-28 md:h-30 lg:h-48 object-top"
+                    />
+                    <!-- Konten -->
+                    <div
+                      class="pt-3 pb-2 px-1 flex flex-col justify-between flex-grow"
+                    >
+                      <div class="flex flex-col justify-between flex-grow">
+                        <!-- Nama -->
+                        <h3
+                          class="text-base sm:text-lg md:text-xl font-semibold text-center text-gray-800 mb-1 sm:mb-2"
+                        >
+                          Sarwo Sucitra Amin, M.T.
+                        </h3>
+                        <!-- Bidang Keahlian -->
+                        <p
+                          class="text-gray-600 text-center text-base sm:text-sm md:text-base mb-4"
+                        >
+                          Geologi , Geofisika , Geokimia , Teknik Sumberdaya
+                          Geologi
+                        </p>
+                      </div>
+
+                      <!-- Aksi (edit & delete) -->
+                      <div class="flex justify-center">
+                        <a href="edttimsarwo.html">
+                          <button
+                            class="mx-2 text-gray-600 hover:text-gray-900 text-base sm:text-sm md:text-base"
+                          >
+                            <i
+                              class="fas fa-edit text-yellow-500 text-base sm:text-sm md:text-base"
+                            ></i>
+                          </button>
+                        </a>
+                        <button
+                          class="mx-2 text-red-600 hover:text-gray-900"
+                          onclick="confirmDelete(this)"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Repeat the same structure for other members -->
+
+                <!-- ... -->
+              </div>
+            </div>
+
+            <!-- Floating Action Button -->
+          </div>
+        </main>
+      </div>
+      <a href="tmbhtim.html">
+        <button
+          class="fixed bottom-4 right-4 bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-50 mr-4"
+          aria-label="Tambah Tim"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </a>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script>
+      // Tunggu sampai DOM selesai dimuat
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ambil semua tombol delete dengan class 'delete-button'
+        const deleteButtons = document.querySelectorAll("#delete-button");
+
+        // Iterasi setiap tombol delete
+        deleteButtons.forEach(function (button) {
+          // Tambahkan event listener untuk setiap tombol
+          button.addEventListener("click", function (event) {
+            // Mencegah aksi default tombol
+            event.preventDefault();
+
+            // Dapatkan elemen tim (team-member) yang akan dihapus
+            const teamMember = this.closest(".team-member");
+
+            // Hapus elemen dari DOM
+            teamMember.remove();
+          });
+        });
+      });
+    </script>
+    <script>
+      function confirmDelete(button) {
+        Swal.fire({
+          title: "Apakah Anda yakin?",
+          text: "Anda tidak akan dapat mengembalikan ini!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
+          customClass: {
+            popup: "w-small-swal-popup max-w-small-swal-popup", // Menggunakan kelas kustom dari Tailwind
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const teamMemberDiv = button.closest(".team-member");
+            if (teamMemberDiv) {
+              teamMemberDiv.remove(); // Menghapus elemen anggota tim
+            }
+            Swal.fire({
+              title: "Dihapus!",
+              text: "Anggota tim telah dihapus.",
+              icon: "success",
+              customClass: {
+                popup: "w-small-swal-popup max-w-small-swal-popup", // Pastikan ukuran juga diterapkan di sini
+              },
+            });
+          }
+        });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
