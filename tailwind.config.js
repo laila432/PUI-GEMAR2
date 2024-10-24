@@ -1,8 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/**/*.{html,js}"],
+  content: ['./public/pengunjung/**/*.{html,js}'],
   theme: {
     extend: {
+      colors: {
+        amber: {
+          100: '#FEF3C7',
+          200: '#FDE68A',
+          300: '#FCD34D',
+          400: '#FBBF24',
+          500: '#F59E0B',
+          600: '#D97706',
+          700: '#B45309',
+          800: '#92400E',
+          900: '#78350F',
+        },
+      },
+      maxHeight: {
+        '84vh': '84vh', // menambahkan kelas max-h-[84vh]
+      },
+      scale: {
+        '110': '1.10',
+        '120': '1.2', // Zoom lebih besar pada hover
+      },
       fontFamily: {
         'lora': ['Lora', 'serif'],
         'monserrat': ['Montserrat', 'sans-serif'],
@@ -10,8 +30,13 @@ module.exports = {
         'roboto': ['Roboto', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
       },
-
+      width: {
+        '100': '25rem',  // w-100 akan setara dengan 25rem
+        '150': '37.5rem',  // w-150 akan setara dengan 37.5rem
+      },
       spacing: {
+        '1rem': '1rem', // Jarak antar gambar
+        '16': '4rem', // Ini adalah padding-bottom 16 (4rem)
         '96': '24rem',  // default for h-96 and w-96
         '100': '25rem', // example for height and width
         '112': '28rem',
@@ -56,7 +81,15 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {
+      scale: ['hover'],
+    },
+  },
   plugins: [
+    
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
     function ({ addComponents }) {
       addComponents({
         '.modal': {
@@ -90,6 +123,7 @@ module.exports = {
           borderTop: '1px solid #ddd',
           textAlign: 'right',
         },
+       
       });
     },
     function({ addBase }) {
