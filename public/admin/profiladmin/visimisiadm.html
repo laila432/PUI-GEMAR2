@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visi Misi</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="../sumberdayaadmin/artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
+                href="../sumberdayaadmin/kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="../sumberdayaadmin/persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200 shadow-xl">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-200 p-4 sm:p-6 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <h1
+              class="text-3xl sm:text-4xl font-bold text-indigo-900 mb-6 mt-4 sm:mt-2"
+            >
+              Visi
+            </h1>
+            <!--konten visi -->
+            <p
+              id="vision-content"
+              class="text-gray-800 mt-4 sm:mt-6 leading-relaxed text-sm sm:text-base text-justify ml-2"
+            >
+              <!-- Konten visi akan ditambahkan di sini -->
+            </p>
+            <h1
+              class="mt-12 text-3xl sm:text-4xl font-bold text-indigo-900 mb-6"
+            >
+              Misi
+            </h1>
+            <!--konten misi-->
+
+            <ul
+              id="mission-list"
+              class="text-gray-800 mt-4 sm:mt-6 leading-relaxed list-disc list-inside text-sm sm:text-base text-justify"
+            ></ul>
+
+            <!-- Floating Action Button -->
+            <a href="editvisimisiadm.html">
+              <button
+                class="fixed bottom-4 right-4 bg-amber-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-opacity-50 mr-4"
+                aria-label="Tambah Tim"
+              >
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+            </a>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script>
+      // Data paragraf
+      const visionText =
+        "Pusat Unggulan Ipteks dalam bidang Penelitian dan Pembelajaran Geodiversity, Biodiversity, dan Cultural secara terintegrasi untuk menumbuhkan ekonomi kreatif yang berwawasan lingkungan pada kawasan Geowisata Geoheritage Merangin.";
+
+      // Data untuk misi
+      const missions = [
+        "Penguatan tata kelola kelembagaan PUI GEMAR UNJA sebagai wadah tumbuh kembang penelitian dan pembelajaran Geowisata yang berdaya saing dengan fokus pada eksplorasi dan pemanfaatan potensi sumber daya alam di kawasan Geoheritage Merangin.",
+        "Memfasilitasi dan memotivasi tumbuh kembang produk-produk hasil riset dan pengembangan yang mampu meningkatkan reputasi peneliti dan Universitas Jambi sebagai lembaga pendidikan tinggi.",
+        "Mengembangkan dan merealisasikan pembelajaran Kampus Merdeka dan Merdeka Belajar untuk menghasilkan lulusan Universitas Jambi yang berjiwa excellent technosociopreneur.",
+        "Memperkuat koordinasi dan konsolidasi antara program studi atau bidang ilmu untuk pengembangan Geowisata Geoheritage Merangin yang terintegrasi dan berkelanjutan dalam satu kawasan.",
+        "Memperkuat jaringan kerjasama kelembagaan dan kemitraan dengan lembaga penelitian dan pengembangan lainnya dari tingkat regional, nasional, dan internasional.",
+        "Mengembangkan dan mendorong peningkatan taraf sosial dan perekonomian daerah yang terkoneksi dan terintegrasi melalui Tri Dharma Perguruan Tinggi Universitas Jambi.",
+      ];
+
+      // Ambil elemen HTML untuk visi dan daftar misi
+      const visionContent = document.getElementById("vision-content");
+      const missionList = document.getElementById("mission-list");
+
+      // Tambahkan konten visi ke dalam elemen "vision-content"
+      visionContent.textContent = visionText;
+
+      // Tambahkan item misi ke dalam daftar
+      missions.forEach((mission) => {
+        const li = document.createElement("li");
+        li.className = "p-1 px-4 text-justify";
+        li.textContent = mission;
+        missionList.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
