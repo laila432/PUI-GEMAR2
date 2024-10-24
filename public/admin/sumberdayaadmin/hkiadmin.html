@@ -81,6 +81,11 @@
                 >Artikel</a
               >
               <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
                 href="../sumberdayaadmin/kegiatanadm.html"
                 class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                 >Kegiatan</a
@@ -187,46 +192,182 @@
             id="content"
             class="transition-transform duration-500 ease-in-out"
           >
-            <h1 class="text-2xl font-bold mb-4">Admin Table</h1>
+            <h1
+              class="text-2xl sm:text-3xl font-bold mb-4 mt-3 text-indigo-800"
+            >
+              HKI Table
+            </h1>
+
             <div class="overflow-x-auto">
               <table
                 class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md"
               >
-                <thead class="bg-gray-200 text-gray-600 uppercase text-sm">
+                <thead class="bg-indigo-900 text-gray-600 uppercase text-sm">
                   <tr>
-                    <th class="py-3 px-4 border-b">Nama HKI</th>
-                    <th class="py-3 px-4 border-b">Deskripsi Singkat HKI</th>
-                    <th class="py-3 px-4 border-b">Dokumen HKI</th>
-                    <th class="py-3 px-4 border-b">Aksi</th>
+                    <th class="py-3 px-4 border-b text-white">Judul</th>
+                    <th class="py-3 px-4 border-b text-white">Nama</th>
+                    <th class="py-3 px-4 border-b text-white">
+                      Deskripsi Singkat HKI
+                    </th>
+                    <th class="py-3 px-4 border-b text-white">Dokumen HKI</th>
+                    <th class="py-3 px-4 border-b text-white">Aksi</th>
                   </tr>
                 </thead>
                 <tbody class="text-gray-700 text-sm text-center">
                   <tr>
-                    <td class="py-3 px-4 border-b">Contoh Nama</td>
                     <td class="py-3 px-4 border-b">
-                      Deskripsi singkat tentang HKI ini.
+                      Buku Panduan/Petunjuk Potensi Panas Bumi Dan Geosite
+                      Kerinci Berbasis Edu-Wisata Sebagai Laboratorium Alam
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Hari Wiki Utama, S.T., M.Eng Dan Anggi Deliana Siregar,
+                      S.T.,M.T
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Anggi Deliana Siregar, S.T.,M.T Buku Panduan/Petunjuk
+                      Potensi Panas Bumi Dan Geosite Kerinci Berbasis Edu-Wisata
+                      Sebagai Laboratorium Alam
                     </td>
                     <td class="py-3 px-4 border-b">
                       <a
-                        href="path-to-your-file.pdf"
+                        href="../../img/hki/hki2.pdf"
                         class="text-indigo-600 hover:underline"
                         download
                         >Unduh PDF</a
                       >
                     </td>
-                    <td
-                      class="py-3 px-4 border-b flex space-x-2 justify-center"
-                    >
-                      <button
-                        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                    <td class="p-4 border-b">
+                      <div class="flex space-x-2 justify-center items-center">
+                        <a href="edithki1.html">
+                          <button
+                            class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600"
+                          >
+                            edit
+                          </button>
+                        </a>
+                        <button
+                          class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+                          onclick="confirmDelete(this)"
+                        >
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr></tr>
+
+                  <tr>
+                    <td class="py-3 px-4 border-b">
+                      Peta Geomorphological Map Of Masurai Caldera In Merangin
+                      Jambi Geopark (Mjgp)
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Hari Wiki Utama, S.T., M.Eng Dan Ir. Yulia Morsa Said, M.T
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Peta Geomorphological Map Of Masurai Caldera In Merangin
+                      Jambi Geopark (Mjgp)
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      <a
+                        href="../../img/hki/hki1.pdf"
+                        class="text-indigo-600 hover:underline"
+                        download
+                        >Unduh PDF</a
                       >
-                        <a href="edithkiadm.html"> Edit</a>
-                      </button>
-                      <button
-                        class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                    </td>
+                    <td class="p-4 border-b">
+                      <div class="flex space-x-2 justify-center items-center">
+                        <button
+                          class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600"
+                        >
+                          <a href="edithki1.html"> Edit</a>
+                        </button>
+                        <button
+                          class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+                          onclick="confirmDelete(this)"
+                        >
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-3 px-4 border-b">
+                      Teluk Gedang Wood Fossil on the Airbatu Geoheritage of the
+                      Merangin Jambi Geopark Aspiring UNESCO Global Geopark;
+                      Geohistory and Storytelling Concept
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Hari Wiki Utama, S.T., M.Eng
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Teluk Gedang Wood Fossil on the Airbatu Geoheritage of the
+                      Merangin Jambi Geopark Aspiring UNESCO Global Geopark;
+                      Geohistory and Storytelling Concept
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      <a
+                        href="../../img/hki/hki3.pdf"
+                        class="text-indigo-600 hover:underline"
+                        download
+                        >Unduh PDF</a
                       >
-                        Hapus
-                      </button>
+                    </td>
+                    <td class="p-4 border-b">
+                      <div class="flex space-x-2 justify-center items-center">
+                        <button
+                          class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600"
+                        >
+                          <a href="edithki1.html"> Edit</a>
+                        </button>
+                        <button
+                          class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+                          onclick="confirmDelete(this)"
+                        >
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-3 px-4 border-b">
+                      Geological Disaster Potential due to Active Sumatran Fault
+                      System on the Keliling Danau Subdistrict, Kerinci Regency,
+                      Jambi
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Hari Wiki Utama, S.T., M.Eng
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      Geological Disaster Potential due to Active Sumatran Fault
+                      System on the Keliling Danau Subdistrict, Kerinci Regency,
+                      Jambi
+                    </td>
+                    <td class="py-3 px-4 border-b">
+                      <a
+                        href="../../img/hki/hki4.pdf"
+                        class="text-indigo-600 hover:underline"
+                        download
+                        >Unduh PDF</a
+                      >
+                    </td>
+                    <td class="p-4 border-b">
+                      <div class="flex space-x-2 justify-center items-center">
+                        <button
+                          class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600"
+                        >
+                          <a href="edithki1.html"> Edit</a>
+                        </button>
+                        <button
+                          class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700"
+                          onclick="confirmDelete(this)"
+                        >
+                          Hapus
+                        </button>
+                      </div>
                     </td>
                   </tr>
                   <!-- Repeat <tr> for more rows -->
@@ -239,7 +380,7 @@
       <!-- Floating Action Button -->
       <a href="tmbhhki.html">
         <button
-          class="fixed bottom-4 right-4 bg-yellow-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mr-4"
+          class="fixed bottom-4 right-4 bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-amber-800 focus:ring-opacity-50 mr-4"
           aria-label="Tambah Tim"
         >
           <i class="fa-solid fa-plus"></i>
@@ -248,5 +389,38 @@
     </div>
 
     <script src="../jsadmin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function confirmDelete(button) {
+        const row = button.closest("tr"); // Mengambil elemen <tr> terdekat dari button
+
+        Swal.fire({
+          title: "Apakah Anda yakin?",
+          text: "Anda tidak akan dapat mengembalikan ini!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Ya, hapus!",
+          cancelButtonText: "Batal",
+          customClass: {
+            popup: "w-small-swal-popup max-w-small-swal-popup",
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Hapus baris artikel (tr)
+            row.remove(); // Menghapus elemen <tr>
+            Swal.fire({
+              title: "Dihapus!",
+              text: "HKI telah dihapus.",
+              icon: "success",
+              customClass: {
+                popup: "w-small-swal-popup max-w-small-swal-popup",
+              },
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

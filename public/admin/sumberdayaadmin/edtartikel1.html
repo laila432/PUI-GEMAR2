@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Kegiatan</title>
+    <title>Edit Artikel</title>
     <link href="../../css/outputadmin.css" rel="stylesheet" />
     <!-- Summernote CSS -->
     <link
@@ -147,7 +147,7 @@
         class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
       >
         <!-- Header -->
-        <nav class="bg-indigo-50 border-b border-gray-200">
+        <nav class="bg-indigo-100 border-b border-gray-200">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
               <div class="flex items-center">
@@ -206,7 +206,7 @@
           </div>
         </nav>
         <!-- Content -->
-        <main class="flex-1 bg-gray-100 p-4 sm:p-6 overflow-y-auto">
+        <main class="flex-1 bg-gray-50 p-4 sm:p-6 overflow-y-auto">
           <div
             id="content"
             class="transition-transform duration-500 ease-in-out"
@@ -214,60 +214,93 @@
             <div class="text-left mb-4 mr-16">
               <!-- Tambahkan tombol edit disini -->
               <form id="editForm" class="max-w-4xl mx-auto">
-                <h1 class="text-3xl font-bold mb-4 mt-3 text-indigo-800">
-                  Edit kegiatan
+                <h1
+                  class="text-2xl sm:text-3xl font-bold mb-4 mt-3 text-indigo-800"
+                >
+                  Edit Artikel
                 </h1>
+
+                <!-- Judul -->
                 <div class="mb-4">
                   <label
-                    for="content"
+                    for="title"
                     class="block text-gray-700 text-md font-bold mb-2"
-                    >Judul</label
                   >
+                    Judul
+                  </label>
                   <input
                     type="text"
                     id="title"
                     name="title"
                     placeholder="Masukkan judul konten"
                     required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded bg-gray-50 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
+
+                <!-- Gambar Utama Artikel -->
                 <div class="mb-4">
                   <label
                     for="image"
                     class="block text-gray-700 text-md font-bold mb-2"
-                    >Gambar utama kegiatan</label
                   >
+                    Gambar utama artikel
+                  </label>
                   <input
                     type="file"
                     id="image"
-                    name="image[]"
+                    name="image"
                     accept="image/*"
-                    multiple
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
-                  <p class="text-gray-600 text-sm mt-1">
-                    *Gambar tidak wajib diunggah. <br />
-                    *Gambar boleh lebih dari satu
-                  </p>
+                  <p id="image-info" class="text-gray-600 text-sm mt-1"></p>
+                  <img
+                    id="preview-image"
+                    class="mt-2"
+                    alt="Gambar sebelumnya"
+                    style="max-width: 300px"
+                  />
                 </div>
 
+                <!-- Abstrak -->
                 <div class="mb-4">
                   <label
                     for="content"
                     class="block text-gray-700 text-md font-bold mb-2"
-                    >Kegiatan</label
                   >
-                  <!-- Summernote Editor -->
+                    Abstrak
+                  </label>
                   <div
                     id="summernote-1"
                     class="bg-white border border-gray-300 rounded-lg p-4"
                   ></div>
                 </div>
+
+                <!-- Link Jurnal -->
+                <div class="mb-4">
+                  <label
+                    for="journalLink"
+                    class="block text-gray-700 text-md font-bold mb-2"
+                  >
+                    Link Jurnal
+                  </label>
+                  <input
+                    type="url"
+                    id="journalLink"
+                    name="journalLink"
+                    placeholder="Masukkan link jurnal"
+                    class="shadow appearance-none bg-gray-50 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                  <p class="text-gray-600 text-sm mt-1">
+                    *Tambahkan link ke jurnal
+                  </p>
+                </div>
+
+                <!-- Tombol Simpan -->
                 <div class="flex justify-end">
                   <button
                     type="submit"
-                    class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     Simpan
                   </button>
@@ -284,19 +317,95 @@
     <!-- Summernote JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
     <!-- Initialize Summernote editor -->
-    <script src="../summernote.js"></script>
     <script>
       // Contoh data yang disediakan secara hardcoded
       const existingData = {
-        title: "Judul kegiatan sebelumnya",
-        fieldcontent: "Konten kegiatan yang telah diisi sebelumnya...",
+        title:
+          "DIGITALIZATION OF MENGKARANG GEOPARK MINIATURE UNIVERSITAS JAMBI AS AN EFFORT TO SUPPORT THE SUMMER COURSE PROGRAM",
+        fieldcontent: "konten yang di isi sebelumnya",
+        journalLink:
+          "https://journal.uinmataram.ac.id/index.php/transformasi/article/view/8590/3002",
       };
 
       // Mengisi field form dengan data
       document.addEventListener("DOMContentLoaded", function () {
+        // Isi judul dan link
         document.getElementById("title").value = existingData.title;
-        document.getElementById("fieldcontent").value =
-          existingData.fieldcontent;
+        document.getElementById("journalLink").value = existingData.journalLink;
+
+        // Periksa gambar sebelumnya
+        const imageElement = document.getElementById("preview-image");
+        const imageInfo = document.getElementById("image-info");
+
+        if (existingData.image) {
+          // Jika gambar ada, tampilkan gambar
+          imageElement.src = existingData.image;
+          imageInfo.textContent = "Gambar sebelumnya:";
+        } else {
+          // Jika gambar tidak ada, tampilkan pesan
+          imageInfo.textContent = "Tidak ada gambar sebelumnya.";
+          imageElement.style.display = "none"; // Sembunyikan elemen gambar
+        }
+      });
+    </script>
+    <script>
+      // Function to set profile image if available
+      function setProfileImage(imageSrc) {
+        var profileImage = document.getElementById("profile-image");
+        var profileIcon = document.getElementById("profile-icon");
+
+        if (imageSrc && imageSrc.trim() !== "") {
+          profileImage.src = imageSrc; // Set the image source
+          profileImage.classList.remove("hidden"); // Show the image
+          profileIcon.style.display = "none"; // Hide the icon completely
+        } else {
+          profileImage.classList.add("hidden"); // Ensure the image is hidden
+          profileIcon.style.display = "block"; // Show the icon
+        }
+      }
+
+      // Example usage: Set the image path or leave it empty
+      setProfileImage("../../img/angt/pas2.jpg"); // Replace with your image path or keep it empty
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#summernote-1").summernote({
+          height: 300, // Set the height of the editor
+          toolbar: [
+            // Other buttons
+            ["para", ["ul", "ol", "paragraph"]], // List buttons
+          ],
+          styleTags: [
+            "p",
+            {
+              title: "Ordered List",
+              tag: "ol",
+              className: "list-decimal list-inside", // Add Tailwind classes
+            },
+            {
+              title: "Unordered List",
+              tag: "ul",
+              className: "list-disc list-inside", // Add Tailwind classes
+            },
+          ],
+          toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "italic", "underline", "clear"]],
+            ["fontname", ["fontname"]],
+            ["fontsize", ["fontsize"]],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]], // List buttons
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+          ],
+        });
+        // Set konten awal
+        var initialContent =
+          "Perkembangan ilmu pengetahuan di era Revolusi Industri 4.0 dan Society 5.0 merupakan fenomena yang serba digital, termasuk ilmu kebumian. Konsep ini menggunakan ilmu pengetahuan berbasis kecerdasan buatan untuk kebutuhan pendidikan yang serba cepat dan nyaman. Kaitannya dengan bidang pendidikan ilmu kebumian adalah studi tentang fenomena bentang alam dan singkapan batuan sebagai hasil dari proses alamiah. Situasi Universitas Jambi yang jauh dari keberadaan singkapan batuan sebagai objek pembelajaran memberikan tantangan besar untuk dapat mengidentifikasi batuan yang ada dengan cepat. Keberadaan miniatur Geopark Mengkarang di Universitas Jambi dapat menjadi solusi yang efektif dalam pembelajaran di bidang kebumian. Sehingga, melalui digitalisasi dapat menjadi alternatif yang diminati dalam media pembelajaran, khususnya untuk kegiatan short summer course yang berkaitan dengan geopark. Upaya digitalisasi ini merupakan bagian dari kegiatan pengabdian dan peran serta civitas akademika Universitas Jambi dalam melakukan inovasi pembelajaran. Dalam pelaksanaan kegiatan pengabdian ini pengumpulan data dilakukan dengan mendeskripsikan 28 sampel batuan dari Kawasan UNESCO Global Geopark Merangin Jambi. Digitalisasi meliputi pembuatan label informasi untuk setiap tampilan batuan yang dilengkapi dengan barcode untuk memudahkan akses. Akses ini bertujuan untuk memberikan informasi yang lebih detail mengenai proses pembentukan setiap batuan. Kegiatan pengabdian ini secara signifikan berkontribusi dalam mendukung kegiatan summer course di Fakultas Sains dan Teknologi, Universitas Jambi. Selain membantu kegiatan summer course, diharapkan melalui digitalisasi ini, Universitas Jambi dapat memainkan peran penting dalam mendukung situs yang telah diakui sebagai situs warisan dunia oleh UNESCO ini.";
+        $("#summernote-1").summernote("code", initialContent);
+        // Mengatur teks menjadi justify
+        $(".note-editable").css("text-align", "justify");
       });
     </script>
   </body>

@@ -86,6 +86,11 @@
                 >Artikel</a
               >
               <a
+                href="hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
                 href="../sumberdayaadmin/kegiatanadm.html"
                 class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                 >Kegiatan</a
@@ -187,73 +192,89 @@
         </nav>
 
         <!-- Content -->
-        <main class="flex-1 bg-gray-100 p-4 overflow-y-auto mx-3">
+        <main class="flex-1 bg-gray-50 p-4 sm:p-6 overflow-y-auto">
           <div
             id="content"
             class="transition-transform duration-500 ease-in-out"
           >
-            <h1 class="text-3xl font-bold mb-4 mt-3 text-indigo-800">
-              Tambah HKI
-            </h1>
-            <form
-              action="/path-to-your-server-endpoint"
-              method="POST"
-              enctype="multipart/form-data"
-            >
-              <div class="mb-4">
-                <label
-                  for="title"
-                  class="block text-gray-700 text-lg font-bold mb-2"
+            <div class="text-left mb-4 mr-16">
+              <form id="editForm" class="max-w-4xl mx-auto">
+                <h1
+                  class="text-2xl sm:text-3xl font-bold mb-4 mt-3 text-indigo-800"
                 >
-                  Nama HKI
-                </label>
-                <input
-                  type="text"
-                  id="title"
-                  name="title"
-                  placeholder="Masukkan Nama HKI"
-                  required
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-              <div class="mb-4">
-                <label
-                  for="description"
-                  class="block text-gray-700 text-lg font-bold mb-2"
-                >
-                  Deskripsi Singkat HKI
-                </label>
-                <!-- Summernote Editor -->
-                <div
-                  id="summernote-3"
-                  class="bg-white border border-gray-300 rounded-lg p-4"
-                ></div>
-              </div>
-              <div class="mb-4">
-                <label
-                  for="document"
-                  class="block text-gray-700 text-lg font-bold mb-2"
-                >
-                  Dokumen (PDF)
-                </label>
-                <input
-                  type="file"
-                  id="document"
-                  name="document"
-                  accept=".pdf"
-                  class="w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
+                  Tambah HKI
+                </h1>
+                <div class="mb-4">
+                  <label
+                    for="title"
+                    class="block text-gray-700 text-md font-bold mb-2"
+                  >
+                    Judul
+                  </label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Masukkan Judul HKI"
+                    required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="title"
+                    class="block text-gray-700 text-md font-bold mb-2"
+                  >
+                    Nama Pencipta
+                  </label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Masukkan Nama Pencipta"
+                    required
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="description"
+                    class="block text-gray-700 text-md font-bold mb-2"
+                  >
+                    Deskripsi Singkat HKI
+                  </label>
+                  <!-- Summernote Editor -->
+                  <div
+                    id="summernote-3"
+                    class="bg-white border border-gray-300 rounded-lg p-4"
+                  ></div>
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="document"
+                    class="block text-gray-700 text-md font-bold mb-2"
+                  >
+                    Dokumen (PDF)
+                  </label>
+                  <input
+                    type="file"
+                    id="document"
+                    name="document"
+                    accept=".pdf"
+                    class="w-full border border-gray-300 bg-gray-50 p-2 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  />
+                </div>
 
-              <div class="flex justify-end">
-                <button
-                  type="submit"
-                  class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                >
-                  Tambah
-                </button>
-              </div>
-            </form>
+                <div class="flex justify-end">
+                  <button
+                    type="submit"
+                    class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    Tambah
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </main>
       </div>

@@ -86,6 +86,11 @@
                 >Artikel</a
               >
               <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
                 href="kegiatanadm.html"
                 class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                 >Kegiatan</a
@@ -198,7 +203,7 @@
             <!-- Kegiatan 1 -->
 
             <div
-              class="mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              class="kegiatan mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             >
               <a href="detailkegiatanadm.html">
                 <h2 class="text-lg font-semibold text-indigo-900 mb-2 mt-14">
@@ -236,7 +241,7 @@
 
                 <button
                   class="mx-2 text-red-600 hover:text-gray-900"
-                  onclick="confirmDelete()"
+                  onclick="confirmDelete(this)"
                 >
                   <i class="fas fa-trash"></i>
                 </button>
@@ -246,7 +251,7 @@
             <!-- Kegiatan 2 -->
 
             <div
-              class="mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              class="kegiatan mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             >
               <a href="detail_kegiatan_2.html">
                 <h2 class="text-lg font-semibold text-indigo-900 mb-2">
@@ -286,7 +291,7 @@
 
                 <button
                   class="mx-2 text-red-600 hover:text-gray-900"
-                  onclick="confirmDelete()"
+                  onclick="confirmDelete(this)"
                 >
                   <i class="fas fa-trash"></i>
                 </button>
@@ -296,7 +301,7 @@
             <!-- Kegiatan 3 -->
 
             <div
-              class="mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
+              class="kegiatan mx-10 mb-8 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105"
             >
               <a href="detail_kegiatan_3.html">
                 <h2 class="text-lg font-semibold text-indigo-900 mb-2">
@@ -335,7 +340,7 @@
 
                 <button
                   class="mx-2 text-red-600 hover:text-gray-900"
-                  onclick="confirmDelete()"
+                  onclick="confirmDelete(this)"
                 >
                   <i class="fas fa-trash"></i>
                 </button>
@@ -345,7 +350,7 @@
             <!-- Floating Action Button -->
             <a href="tmbhkegiatan.html">
               <button
-                class="fixed bottom-4 right-4 bg-yellow-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mr-4"
+                class="fixed bottom-4 right-4 bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 mr-4"
                 aria-label="Tambah Tim"
               >
                 <i class="fa-solid fa-plus"></i>
@@ -381,7 +386,7 @@
     <!-- Tambahkan SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-      function confirmDelete() {
+      function confirmDelete(button) {
         Swal.fire({
           title: "Apakah Anda yakin?",
           text: "Anda tidak akan dapat mengembalikan ini!",
@@ -392,15 +397,29 @@
           confirmButtonText: "Ya, hapus!",
           cancelButtonText: "Batal",
           customClass: {
-            popup: "small-swal-popup", // Menambahkan kelas kustom untuk mengubah ukuran
+            popup: "w-small-swal-popup max-w-small-swal-popup", // Menggunakan kelas kustom dari Tailwind
           },
         }).then((result) => {
           if (result.isConfirmed) {
-            Swal.fire("Dihapus!", "Item telah dihapus.", "success");
+            // Cari elemen induk terdekat yang merupakan <tr> jika ini dalam tabel
+            const row = button.closest(".kegiatan");
+            // Jika ditemukan, hapus elemen tersebut
+            if (row) {
+              row.remove();
+              Swal.fire({
+                title: "Dihapus!",
+                text: "Kegiatan telah dihapus.",
+                icon: "success",
+                customClass: {
+                  popup: "w-small-swal-popup max-w-small-swal-popup", // Pastikan ukuran juga diterapkan di sini
+                },
+              });
+            }
           }
         });
       }
     </script>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const modal = document.getElementById("commentModal");
