@@ -231,14 +231,15 @@
                     id="divisi"
                     name="divisi"
                     required
+                    onchange="handleAddDivisiOption(this)"
                     class="w-full px-3 py-2 border border-gray-300 bg-gray-50 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
                   >
                     <option value="">Pilih Divisi</option>
                     <option value="divisi1">
-                      Divisi Kepemimpinan Organisasi
+                      Divisi Kepemimpinan Organisasi (Inti)
                     </option>
                     <option value="divisi2">
-                      Divisi Penguatan Kapasistas Kelembagaan
+                      Divisi Penguatan Kapasitas Kelembagaan
                     </option>
                     <option value="divisi3">
                       Divisi Penguatan Edukasi dan Konservasi
@@ -246,7 +247,45 @@
                     <option value="divisi4">
                       Divisi Pengembangan dan Komersialisasi
                     </option>
+                    <option
+                      value="tambahDivisi"
+                      class="text-green-500 font-semibold"
+                    >
+                      + Tambah Divisi
+                    </option>
                   </select>
+                </div>
+
+                <!-- Popup Modal untuk Tambah Divisi -->
+                <div
+                  id="popupModal"
+                  class="hidden fixed inset-0 items-center justify-center bg-gray-800 bg-opacity-50 z-50"
+                >
+                  <div class="bg-white p-6 rounded-md shadow-lg">
+                    <h2 class="text-lg font-semibold mb-4">
+                      Tambah Divisi Baru
+                    </h2>
+                    <input
+                      type="text"
+                      id="newDivisi"
+                      placeholder="Masukkan nama divisi"
+                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                    <div class="flex justify-center mt-4">
+                      <button
+                        onclick="closePopup()"
+                        class="px-4 py-2 mr-2 text-gray-700"
+                      >
+                        Batal
+                      </button>
+                      <button
+                        onclick="addDivisi()"
+                        class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-blue-600"
+                      >
+                        Tambah
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <!-- Nama -->
                 <div>
@@ -393,6 +432,53 @@
         var imgElement = document.getElementById("foto-sebelumnya");
         imgElement.src = existingData.foto;
       });
+    </script>
+    <script>
+      // Fungsi untuk menampilkan popup
+      function openPopup() {
+        document.getElementById("popupModal").classList.remove("hidden");
+        document.getElementById("popupModal").classList.add("flex");
+      }
+
+      // Fungsi untuk menutup popup
+      function closePopup() {
+        document.getElementById("popupModal").classList.add("hidden");
+        document.getElementById("popupModal").classList.remove("flex");
+      }
+
+      // Fungsi untuk menangani opsi "Tambah Divisi"
+      function handleAddDivisiOption(selectElement) {
+        if (selectElement.value === "tambahDivisi") {
+          selectElement.value = ""; // Kembali ke pilihan sebelumnya
+          openPopup();
+        }
+      }
+
+      // Fungsi untuk menambahkan divisi ke dalam dropdown
+      function addDivisi() {
+        const divisiInput = document.getElementById("newDivisi");
+        const newDivisi = divisiInput.value.trim();
+
+        if (newDivisi) {
+          // Buat opsi baru untuk divisi
+          const selectDivisi = document.getElementById("divisi");
+          const option = document.createElement("option");
+          option.value = `divisi${selectDivisi.options.length}`;
+          option.text = newDivisi;
+
+          // Tambahkan opsi baru sebelum opsi "Tambah Divisi"
+          selectDivisi.insertBefore(
+            option,
+            selectDivisi.options[selectDivisi.options.length - 1]
+          );
+
+          // Bersihkan input dan tutup popup
+          divisiInput.value = "";
+          closePopup();
+        } else {
+          alert("Nama divisi tidak boleh kosong.");
+        }
+      }
     </script>
   </body>
 </html>
