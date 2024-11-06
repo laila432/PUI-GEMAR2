@@ -30,14 +30,50 @@ function createColoredMarker(color) {
 // Koordinat lokasi sumber daya (contoh)
 // Koordinat lokasi sumber daya (contoh) dengan URL
 var resourceLocations = [
-    { name: "UMKM 1", location: [-2.1647, 102.2322], focus: "red", url: "../sumberdaya/detailpersebaranumkm.html" }, // Contoh lokasi 1
-    { name: "Potensi Alam 1", location: [-2.1643, 102.2522], focus: "blue", url: "https://example.com/resource2" }, // Contoh lokasi 2
-    { name: "Sumber Daya 3", location: [-2.1644, 102.2552], focus: "green", url: "../sumberdaya/detailpersebaranpa.html" }, // Contoh lokasi 3
-    { name: "Sumber Daya 4", location: [-2.1645, 102.2512], focus: "black", url: "https://example.com/resource4" }  // Contoh lokasi 4
+    { 
+        name: "UMKM 1", 
+        location: [-2.1647, 102.2322], 
+        focus: "blue", 
+        url: "../sumberdaya/detailpersebaranumkm.html",
+        address: "alamat umkm" 
+    },
+    { 
+        name: "Potensi Alam 1", 
+        location: [-2.1643, 102.2522], 
+        focus: "blue", 
+        url: "../sumberdaya/detailpersebaranumkm.html",
+        address: "lokasi umkm" 
+    },
+    { 
+        name: "Sumber Daya 3", 
+        location: [-2.1644, 102.2552], 
+        focus: "green", 
+        url: "../sumberdaya/detailpersebaranpa.html",
+        address: "lokasi potensi alam" 
+    },
+    { 
+        name: "Sumber Daya 4", 
+        location: [-2.1645, 102.2512], 
+        focus: "green", 
+        url: "../sumberdaya/detailpersebaranpa.html",
+        address: "lokasi potensi alam" 
+    },
+    { 
+        name: "Danau Telago Biru", 
+        location: [-1.6960821966562911,102.95161189298298], 
+        focus: "green", 
+        url: "../sumberdaya/detailpersebaranpa2.html",
+        address: "Tj. Alam, Kec. Jangkat Timur, Kabupaten Merangin, Jambi 37372" 
+    }
 ];
 
 // Tambahkan marker untuk setiap lokasi sumber daya
 resourceLocations.forEach(function(resource) {
     L.marker(resource.location, { icon: createColoredMarker(resource.focus) }).addTo(map)
-        .bindPopup(`<b><a href="${resource.url}">${resource.name}</a></b><br>Lokasi Sumber Daya`);
+        .bindPopup(`
+            <b><a href="${resource.url}">${resource.name}</a></b><br>
+            
+            Alamat: ${resource.address}
+        `);
 });
+
