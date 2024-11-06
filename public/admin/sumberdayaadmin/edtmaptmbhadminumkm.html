@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit UMKM</title>
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
+                href="kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM
+              </a>
+            </div>
+          </div>
+          <a
+            href="../museumadmin/museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <!--konten detail artikel -->
+            <div class="max-w-full p-6 bg-white shadow-md rounded-lg">
+              <h1 class="text-4xl font-bold text-indigo-900 mt-2 mb-6">
+                Edit UMKM
+              </h1>
+              <div class="px-4 py-1 bg-gray-100">
+                <div id="map" class="h-96 p-2 z-0 mt-10"></div>
+                <p class="text-sm text-indigo-900">
+                  *ketuk di peta untuk memasukkan langitude, latitude, dan
+                  alamat secara otomatis
+                </p>
+              </div>
+              <div class="form-container mt-10">
+                <form
+                  id="paForm"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg mb-4"
+                >
+                  <h4 class="text-2xl font-bold text-indigo-900 mb-4">
+                    Marker
+                  </h4>
+                  <!--lat-->
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="paLat"
+                      class="block text-gray-700 text-sm font-semibold mb-2"
+                      >Latitude</label
+                    >
+                    <!--readonly untuk tidak dapat mauskkan data manual-->
+                    <input
+                      type="text"
+                      id="paLat"
+                      name="paLat"
+                      placeholder="klik lokasi pada peta untuk melihat latitude dari titik lokasi"
+                      required
+                      readonly
+                      class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                  <!--lang-->
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="paLng"
+                      class="block text-gray-700 text-sm font-semibold mb-2"
+                      >Longitude</label
+                    >
+                    <input
+                      type="text"
+                      id="paLng"
+                      name="paLng"
+                      placeholder="klik lokasi pada peta untuk melihat latitude dari titik lokasi"
+                      required
+                      readonly
+                      class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+                </form>
+                <form
+                  id="paForm"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg mb-4"
+                >
+                  <h4 class="text-2xl font-bold text-indigo-900 mb-4 mt-2">
+                    UMKM
+                  </h4>
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="paName"
+                      class="block text-gray-700 text-sm font-semibold mb-2"
+                      >Nama UMKM</label
+                    >
+                    <input
+                      type="text"
+                      id="paName"
+                      name="paName"
+                      placeholder="Masukkan Nama pa"
+                      required
+                      class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                  </div>
+
+                  <!--Deskripsi Singkat pa-->
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="paDescription"
+                      class="block text-gray-700 text-sm font-semibold mb-2"
+                      >Deskripsi UMKM</label
+                    >
+                    <!-- Summernote Editor -->
+                    <div
+                      id="summernote-3"
+                      name="paDescription"
+                      class="bg-gray-50 border border-gray-300 rounded-lg p-4 ml-4"
+                    ></div>
+                  </div>
+                </form>
+
+                <!-- Form untuk Tambah Produk -->
+                <form
+                  class="bg-gray-100 rounded-lg shadow-lg p-6 mb-8 mt-4"
+                  id="form-tambah-produk"
+                >
+                  <h4 class="text-2xl font-bold text-indigo-900 mb-4 mt-2">
+                    Tambah Produk
+                  </h4>
+                  <div id="produk-container"></div>
+                  <button
+                    type="button"
+                    id="tambah-produk"
+                    class="bg-green-600 text-white px-4 py-2 rounded-md"
+                  >
+                    Tambah Produk Lain
+                  </button>
+                </form>
+
+                <form
+                  id="form-tambah-kontak"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg"
+                >
+                  <h2 class="text-2xl font-semibold text-indigo-900 mb-6 mt-2">
+                    Tambah Kontak UMKM
+                  </h2>
+                  <div class="mb-4">
+                    <label
+                      for="nama"
+                      class="block text-sm font-medium text-gray-700"
+                      >Nama Kontak</label
+                    >
+                    <input
+                      type="text"
+                      id="nama"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan nama kontak"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="telepon"
+                      class="block text-sm font-medium text-gray-700"
+                      >Telepon</label
+                    >
+                    <input
+                      type="text"
+                      id="telepon"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan nomor telepon"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="whatsapp"
+                      class="block text-sm font-medium text-gray-700"
+                      >Whatsapp</label
+                    >
+                    <input
+                      type="text"
+                      id="whatsapp"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan nomor Whatsapp"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="email"
+                      class="block text-sm font-medium text-gray-700"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan email"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="instagram"
+                      class="block text-sm font-medium text-gray-700"
+                      >Instagram</label
+                    >
+                    <input
+                      type="text"
+                      id="instagram"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan akun Instagram"
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      for="umkmAddress"
+                      class="block text-sm font-medium text-gray-700"
+                      >Alamat</label
+                    >
+                    <input
+                      type="text"
+                      id="umkmAddress"
+                      name="umkmAddress"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan alamat"
+                      required
+                    />
+                  </div>
+                </form>
+
+                <form
+                  id="form-tambah-kontak"
+                  class="bg-gray-100 p-6 rounded-lg shadow-lg mt-4"
+                >
+                  <h2 class="text-2xl font-bold text-indigo-900 mb-6">
+                    Lokasi
+                  </h2>
+
+                  <div class="mb-4 ml-4">
+                    <label
+                      for="paAddress"
+                      class="block text-sm font-semibold text-gray-700"
+                      >Alamat</label
+                    >
+                    <input
+                      type="text"
+                      id="paAddress"
+                      name="paAddress"
+                      class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                      placeholder="Masukkan alamat"
+                      required
+                    />
+                  </div>
+                </form>
+                <div class="flex justify-end mt-6">
+                  <button
+                    type="submit"
+                    class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  >
+                    Simpan
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+      const initialData = {
+        marker: {
+          lat: "-1.9487",
+          lng: "102.3663",
+        },
+        potensiAlam: {
+          nama: "Kopi D'jangkat Sungai Tenang",
+          deskripsi:
+            "merupakan salah satu umkm yang ada di merangin yang menyediakan produk utama berupa biji kopi jangkat yang bisa diolah untuk membuat kopi yang nikmat. ",
+        },
+
+        lokasi: {
+          alamat: "Merangin, Jambi",
+        },
+        produk: [
+          {
+            nama: "Bubuk kopi",
+            hargaTerendah: 50000,
+            hargaTertinggi: 100000,
+            deskripsi: "Bubuk kopi jangkat",
+            gambar: "../../img/produk/prdk-1.jpg",
+          },
+          {
+            nama: "Biji Kopi Jangkat",
+            hargaTerendah: 75000,
+            hargaTertinggi: 125000,
+            deskripsi: "Biji Kopi khas Jangkat",
+            gambar: "../../img/produk/prdk-2.jpg",
+          },
+        ],
+        kontak: {
+          nama: "Nama Kontak UMKM",
+          telepon: "08123456789",
+          whatsapp: "08123456789",
+          email: "umkm@example.com",
+          instagram: "umkm_instagram",
+          umkmAddress: "Jl. Contoh Alamat No. 123",
+        },
+      };
+
+      const map = L.map("map").setView(
+        [initialData.marker.lat, initialData.marker.lng],
+        13
+      );
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "© OpenStreetMap",
+      }).addTo(map);
+
+      let marker = L.marker([initialData.marker.lat, initialData.marker.lng], {
+        draggable: true,
+      })
+        .addTo(map)
+        .bindPopup("Klik untuk mengedit data");
+
+      // Fungsi untuk memperbarui form latitude dan longitude
+      function updateLatLngForm(lat, lng) {
+        document.getElementById("paLat").value = lat;
+        document.getElementById("paLng").value = lng;
+      }
+
+      // Fungsi untuk memperbarui alamat di form
+      async function updateAddressForm(lat, lng) {
+        const address = await reverseGeocode(lat, lng);
+        document.getElementById("paAddress").value =
+          address || "Alamat tidak ditemukan";
+      }
+
+      // Fungsi untuk melakukan reverse geocoding dan mendapatkan alamat
+      async function reverseGeocode(lat, lng) {
+        try {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+          );
+          const data = await response.json();
+          return data.display_name || "Alamat tidak ditemukan";
+        } catch (error) {
+          console.error("Error reverse geocoding:", error);
+          return "Alamat tidak ditemukan";
+        }
+      }
+
+      // Event listener saat peta diklik
+      map.on("click", async function (e) {
+        const { lat, lng } = e.latlng;
+
+        // Update koordinat pada form langsung
+        updateLatLngForm(lat.toFixed(6), lng.toFixed(6));
+
+        // Pindahkan marker ke lokasi yang diklik
+        marker.setLatLng([lat, lng]);
+
+        // Update alamat pada form
+        await updateAddressForm(lat, lng);
+      });
+
+      // Event listener saat marker dipindahkan
+      marker.on("dragend", async function (e) {
+        const { lat, lng } = e.target.getLatLng();
+
+        // Update koordinat pada form langsung
+        updateLatLngForm(lat.toFixed(6), lng.toFixed(6));
+
+        // Update alamat pada form
+        await updateAddressForm(lat, lng);
+      });
+
+      function loadInitialData() {
+        updateLatLngForm(initialData.marker.lat, initialData.marker.lng);
+        document.getElementById("paAddress").value = initialData.lokasi.alamat;
+        document.getElementById("paName").value = initialData.potensiAlam.nama;
+        document.getElementById("nama").value = initialData.kontak.nama;
+        document.getElementById("telepon").value = initialData.kontak.telepon;
+        document.getElementById("whatsapp").value = initialData.kontak.whatsapp;
+        document.getElementById("email").value = initialData.kontak.email;
+        document.getElementById("instagram").value =
+          initialData.kontak.instagram;
+        document.getElementById("umkmAddress").value =
+          initialData.kontak.umkmAddress;
+        document.getElementById("summernote-3").innerText =
+          initialData.potensiAlam.deskripsi;
+
+        const produkContainer = document.getElementById("produk-container");
+
+        initialData.produk.forEach((item, index) => {
+          const produkItemDiv = document.createElement("div");
+          produkItemDiv.className = "produk-item mb-6 ml-4";
+          produkItemDiv.innerHTML = `
+    <h5 class="text-lg font-semibold mb-2">Produk ${index + 1}</h5>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="mb-4">
+        <label for="nama-produk-${
+          index + 1
+        }" class="block text-sm font-medium text-gray-700">Nama Produk</label>
+        <input type="text" id="nama-produk-${index + 1}" value="${
+            item.nama
+          }" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Nama produk..." required />
+      </div>
+      <div class="mb-4 ml-3">
+        <label for="harga-terendah-${
+          index + 1
+        }" class="block text-sm font-medium text-gray-700">Harga Terendah</label>
+        <input type="number" id="harga-terendah-${index + 1}" value="${
+            item.hargaTerendah
+          }" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Harga terendah..." required />
+      </div>
+      <div class="mb-4">
+        <label for="harga-tertinggi-${
+          index + 1
+        }" class="block text-sm font-medium text-gray-700">Harga Tertinggi</label>
+        <input type="number" id="harga-tertinggi-${index + 1}" value="${
+            item.hargaTertinggi
+          }" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Harga tertinggi..." required />
+      </div>
+      <div class="mb-4 col-span-2 ml-3">
+        <label for="deskripsi-produk-${
+          index + 1
+        }" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+        <textarea id="deskripsi-produk-${
+          index + 1
+        }" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Deskripsi produk..." required>${
+            item.deskripsi
+          }</textarea>
+      </div>
+      <div class="mb-4 col-span-2">
+        <label for="gambar-produk-${
+          index + 1
+        }" class="block text-sm font-medium text-gray-700">Gambar Produk</label>
+        <input type="file" id="gambar-produk-${
+          index + 1
+        }" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+        <p class="mt-1 text-gray-600">Saat ini: ${item.gambar}</p>
+        <img src="${item.gambar}" alt="Gambar Produk ${
+            index + 1
+          }" class="mt-2 w-48 h-48 object-cover rounded" />
+      </div>
+    </div>
+  `;
+          produkContainer.appendChild(produkItemDiv);
+        });
+      }
+      // Fungsi untuk memuat data awal ke dalam form
+
+      document.addEventListener("DOMContentLoaded", loadInitialData);
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let produkCount = 2;
+
+        document
+          .getElementById("tambah-produk")
+          .addEventListener("click", function () {
+            console.log("Tombol tambah produk diklik");
+
+            const produkContainer = document.getElementById("produk-container");
+            if (!produkContainer) {
+              console.error(
+                "Elemen dengan ID 'produk-container' tidak ditemukan."
+              );
+              return; // Hentikan eksekusi jika elemen tidak ditemukan
+            }
+
+            produkCount++; // Menambah jumlah produk
+
+            // Membuat form produk baru
+            const produkItem = document.createElement("div");
+            produkItem.classList.add("produk-item", "mb-6");
+            produkItem.innerHTML = `
+      <h5 class="text-lg font-semibold mb-2">Produk ${produkCount}</h5>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="mb-4">
+          <label for="nama-produk-${produkCount}" class="block text-sm font-medium text-gray-700">Nama Produk</label>
+          <input type="text" id="nama-produk-${produkCount}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Nama produk..." required />
+        </div>
+        <div class="mb-4">
+          <label for="harga-terendah-${produkCount}" class="block text-sm font-medium text-gray-700">Harga Terendah</label>
+          <input type="number" id="harga-terendah-${produkCount}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Harga terendah..." required />
+        </div>
+        <div class="mb-4">
+          <label for="harga-tertinggi-${produkCount}" class="block text-sm font-medium text-gray-700">Harga Tertinggi</label>
+          <input type="number" id="harga-tertinggi-${produkCount}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Harga tertinggi..." required />
+        </div>
+        <div class="mb-4 col-span-2">
+          <label for="deskripsi-produk-${produkCount}" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+          <textarea id="deskripsi-produk-${produkCount}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Deskripsi produk..." required></textarea>
+        </div>
+        <div class="mb-4 col-span-2">
+          <label for="gambar-produk-${produkCount}" class="block text-sm font-medium text-gray-700">Gambar Produk</label>
+          <input type="file" id="gambar-produk-${produkCount}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
+        </div>
+      </div>
+    `;
+
+            // Tambahkan form baru ke dalam container produk
+            produkContainer.appendChild(produkItem);
+          });
+      });
+    </script>
+
+    <!-- Summernote JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
+    <!-- Initialize Summernote editor -->
+    <script src="../summernote.js"></script>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </body>
+</html>
