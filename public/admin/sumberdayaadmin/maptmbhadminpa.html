@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nama Kegitan</title>
+    <title>Tambah Potensi Alam</title>
     <!-- Summernote CSS -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
@@ -200,10 +200,16 @@
           >
             <!--konten detail artikel -->
             <div class="max-w-full p-6 bg-white shadow-md rounded-lg">
-              <h1 class="text-4xl font-bold text-indigo-900 mt-2">
-                Tambah UMKM
+              <h1 class="text-4xl font-bold text-indigo-900 mt-2 mb-6">
+                Tambah Potensi Alam
               </h1>
-              <div id="map" class="h-96 p-2 z-0 mt-10"></div>
+              <div class="px-4 py-1 bg-gray-100">
+                <div id="map" class="h-96 p-2 z-0 mt-10"></div>
+                <p class="text-sm text-indigo-900">
+                  *ketuk di peta untuk memasukkan langitude, latitude, dan
+                  alamat secara otomatis
+                </p>
+              </div>
               <div class="form-container mt-10">
                 <form
                   id="umkmForm"
@@ -216,7 +222,7 @@
                   <div class="mb-4 ml-4">
                     <label
                       for="umkmLat"
-                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      class="block text-gray-700 text-sm font-semibold mb-2"
                       >Latitude</label
                     >
                     <!--readonly untuk tidak dapat mauskkan data manual-->
@@ -227,14 +233,14 @@
                       placeholder="klik lokasi pada peta untuk melihat latitude dari titik lokasi"
                       required
                       readonly
-                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                   </div>
                   <!--lang-->
                   <div class="mb-4 ml-4">
                     <label
                       for="umkmLng"
-                      class="block text-gray-700 text-lg font-semibold mb-2"
+                      class="block text-gray-700 text-sm font-semibold mb-2"
                       >Longitude</label
                     >
                     <input
@@ -244,7 +250,7 @@
                       placeholder="klik lokasi pada peta untuk melihat latitude dari titik lokasi"
                       required
                       readonly
-                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                   </div>
                 </form>
@@ -253,13 +259,13 @@
                   class="bg-gray-100 p-6 rounded-lg shadow-lg mb-4"
                 >
                   <h4 class="text-2xl font-bold text-indigo-900 mb-4 mt-2">
-                    UMKM
+                    Potensi Alam
                   </h4>
                   <div class="mb-4 ml-4">
                     <label
                       for="umkmName"
-                      class="block text-gray-700 text-lg font-semibold mb-2"
-                      >Nama UMKM</label
+                      class="block text-gray-700 text-sm font-semibold mb-2"
+                      >Nama Potensi Alam</label
                     >
                     <input
                       type="text"
@@ -267,7 +273,7 @@
                       name="umkmName"
                       placeholder="Masukkan Nama UMKM"
                       required
-                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      class="shadow appearance-none border rounded w-full py-2 px-3 bg-gray-50 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                   </div>
 
@@ -275,14 +281,14 @@
                   <div class="mb-4 ml-4">
                     <label
                       for="umkmDescription"
-                      class="block text-gray-700 text-lg font-semibold mb-2"
-                      >Deskripsi UMKM</label
+                      class="block text-gray-700 text-sm font-semibold mb-2"
+                      >Deskripsi Potensi Alam</label
                     >
                     <!-- Summernote Editor -->
                     <div
                       id="summernote-3"
                       name="umkmDescription"
-                      class="bg-white border border-gray-300 rounded-lg p-4 ml-4"
+                      class="bg-gray-50 border border-gray-300 rounded-lg p-4 ml-4"
                     ></div>
                   </div>
                 </form>
@@ -297,31 +303,31 @@
                   <div id="foto-container">
                     <!-- Foto pertama -->
                     <div class="foto-item mb-6 ml-4">
-                      <h5 class="text-lg font-semibold mb-2">Produk 1</h5>
-                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="mb-4 col-span-2">
+                      <h5 class="text-lg font-semibold mb-2">Potensi Alam 1</h5>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="col-span-2">
                           <label
                             for="gambar-produk-1"
-                            class="block text-sm font-medium text-gray-700"
-                            >Gambar Produk</label
+                            class="block text-sm font-semibold text-gray-700"
+                            >Gambar Potensi Alam</label
                           >
                           <input
                             type="file"
                             id="gambar-produk-1"
-                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            class="mt-1 block w-full p-2 border border-gray-300 bg-gray-50 rounded-md"
                             required
                           />
                         </div>
 
-                        <div class="mb-4 col-span-2 ml-3">
+                        <div class="mb-2 col-span-2">
                           <label
                             for="deskripsi-produk-1"
-                            class="block text-sm font-medium text-gray-700"
+                            class="block text-sm font-semibold text-gray-700"
                             >Deskripsi</label
                           >
                           <textarea
                             id="deskripsi-produk-1"
-                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            class="mt-1 block w-full p-2 border border-gray-300 bg-gray-50 rounded-md"
                             placeholder="Deskripsi produk..."
                             required
                           ></textarea>
@@ -332,7 +338,7 @@
                   <button
                     type="button"
                     id="tambah-foto"
-                    class="bg-green-600 text-white px-4 py-2 rounded-md"
+                    class="bg-green-600 text-white px-4 py-2 font-bold rounded-md"
                   >
                     Tambah Foto Lain
                   </button>
@@ -342,14 +348,14 @@
                   id="form-tambah-kontak"
                   class="bg-gray-100 p-6 rounded-lg shadow-lg"
                 >
-                  <h2 class="text-2xl font-semibold text-indigo-900 mb-6 mt-2">
+                  <h2 class="text-2xl font-bold text-indigo-900 mb-6 mt-2">
                     Lokasi
                   </h2>
 
                   <div class="mb-4 ml-4">
                     <label
                       for="umkmAddress"
-                      class="block text-sm font-medium text-gray-700"
+                      class="block text-sm font-semibold text-gray-700"
                       >Alamat</label
                     >
                     <input
@@ -366,7 +372,7 @@
                 <div class="flex justify-end mt-6">
                   <button
                     type="submit"
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   >
                     Tambah
                   </button>
@@ -464,12 +470,12 @@
             const produkBaru = `
             <div class="foto-item mb-6 ml-4">
               <h5 class="text-lg font-semibold mb-2">Produk ${produkCounter}</h5>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="mb-4 col-span-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class=" col-span-2">
                   <label for="gambar-produk-${produkCounter}" class="block text-sm font-medium text-gray-700">Gambar Produk</label>
                   <input type="file" id="gambar-produk-${produkCounter}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required />
                 </div>
-                <div class="mb-4 col-span-2 ml-3">
+                <div class="mb-2 col-span-2">
                   <label for="deskripsi-produk-${produkCounter}" class="block text-sm font-medium text-gray-700">Deskripsi</label>
                   <textarea id="deskripsi-produk-${produkCounter}" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Deskripsi produk..." required></textarea>
                 </div>
