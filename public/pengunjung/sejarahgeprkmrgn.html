@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum Digital</title>
+    <!--  link CSS Tailwind -->
+
+    <!--  link CSS Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="../css/output.css" rel="stylesheet" />
+  </head>
+  <body class="font-poppins">
+    <nav class="bg-indigo-900 py-4 fixed-navbar w-full top-0 z-50">
+      <div class="mx-auto flex justify-between items-center">
+        <!-- Logo di sebelah kiri -->
+        <div class="flex items-center">
+          <img src="../img/logo/logo.png" alt="Logo" class="w-16 h-auto ml-8" />
+        </div>
+
+        <!-- Menu untuk layar besar -->
+        <div
+          class="hidden lg:flex flex-col lg:flex-row justify-center items-center space-x-6"
+          id="menu"
+        >
+          <!-- Menu 1 -->
+          <a
+            href="beranda/index.html"
+            class="menu-item text-white hover:text-gray-300 font-medium"
+          >
+            Beranda
+          </a>
+          <!-- Menu 2 -->
+          <div class="relative">
+            <button
+              class="menu-item text-white hover:text-gray-300 focus:outline-none font-medium"
+            >
+              Profil
+              <i class="fas fa-caret-down ml-1" style="color: white"></i>
+            </button>
+            <!-- Submenu Menu 2 -->
+            <div
+              class="submenu absolute left-0 mt-2 w-48 bg-indigo-900 shadow-lg rounded-lg py-2 hidden"
+            >
+              <a
+                href="profile/sejarah.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Sejarah</a
+              >
+              <a
+                href="profile/visi_misi.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Visi Misi</a
+              >
+              <a
+                href="profile/strukturorganisasi.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="profile/team.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <!-- Menu 3 -->
+          <div class="relative">
+            <button
+              class="menu-item text-white hover:text-gray-300 focus:outline-none font-medium"
+            >
+              Sumber Daya
+              <i class="fas fa-caret-down ml-1" style="color: white"></i>
+            </button>
+            <!-- Submenu Menu 3 -->
+            <div
+              class="submenu absolute left-0 mt-2 w-48 bg-indigo-900 shadow-lg rounded-lg py-2 hidden"
+            >
+              <a
+                href="sumberdaya/artikel.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Artikel</a
+              >
+              <a
+                href="sumberdaya/hki.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >HKI</a
+              >
+
+              <a
+                href="sumberdaya/Peta Persebaran.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Persebaran UMKM</a
+              >
+              <a
+                href="sumberdaya/kegiatan.html"
+                class="block px-4 py-2 text-white hover:bg-gray-700"
+                >Kegiatan</a
+              >
+            </div>
+          </div>
+          <!-- Menu 4 -->
+          <a
+            href="museum.html"
+            class="menu-item text-white hover:text-gray-300 font-medium border-b-2"
+          >
+            Museum Digital
+          </a>
+          <a
+            href="#contact"
+            class="menu-item text-white hover:text-gray-300 font-medium"
+          >
+            Kontak
+          </a>
+        </div>
+
+        <!-- Ikon search untuk layar besar -->
+        <div class="search-icon mr-10 hidden lg:flex">
+          <button
+            class="text-white hover:text-gray-300 focus:outline-none"
+            id="searchButton"
+          >
+            <i class="fas fa-search text-lg"></i>
+          </button>
+          <!-- Kotak penelusuran -->
+          <div
+            id="searchBox"
+            class="absolute top-5 right-1 mt-10 bg-white rounded-lg shadow-md px-4 py-2 hidden"
+          >
+            <input
+              type="text"
+              class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:border-blue-500"
+              placeholder="Cari..."
+            />
+          </div>
+        </div>
+
+        <!-- Ikon menu hamburger -->
+        <div class="hamburger-icon mr-10 lg:hidden">
+          <button
+            class="text-white hover:text-gray-300 focus:outline-none"
+            id="hamburgerButton"
+          >
+            <i class="fas fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu dropdown untuk layar kecil -->
+      <div id="menuDropdown" class="hidden lg:hidden flex-col mt-4 space-y-2">
+        <!-- Menu Items -->
+        <a
+          href="beranda/index.html"
+          class="menu-item text-white hover:text-gray-300 font-medium pl-4"
+        >
+          Beranda
+        </a>
+        <div class="relative pl-4">
+          <button
+            class="menu-item text-white hover:text-gray-300 focus:outline-none font-medium"
+          >
+            Profil
+            <i class="fas fa-caret-down ml-1" style="color: white"></i>
+          </button>
+          <div
+            class="submenu mt-2 bg-indigo-900 shadow-lg rounded-lg py-2 hidden"
+          >
+            <a
+              href="profile/sejarah.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Sejarah
+            </a>
+            <a
+              href="profile/visi_misi.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Visi Misi
+            </a>
+            <a
+              href="profile/strukturorganisasi.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Struktur Organisasi
+            </a>
+            <a
+              href="profile/team.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+              >Tim</a
+            >
+          </div>
+        </div>
+        <div class="relative pl-4">
+          <button
+            class="menu-item text-white hover:text-gray-300 focus:outline-none font-medium"
+          >
+            Sumber Daya
+            <i class="fas fa-caret-down ml-1" style="color: white"></i>
+          </button>
+          <div
+            class="submenu mt-2 bg-indigo-900 shadow-lg rounded-lg py-2 hidden"
+          >
+            <a
+              href="sumberdaya/artikel.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Artikel
+            </a>
+            <a
+              href="sumberdaya/hki.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              HKI
+            </a>
+
+            <a
+              href="sumberdaya/Peta Persebaran.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Persebaran UMKM
+            </a>
+            <a
+              href="sumberdaya/kegiatan.html"
+              class="block px-4 py-2 text-white hover:bg-gray-700"
+            >
+              Kegiatan
+            </a>
+          </div>
+        </div>
+        <div class="relative pl-4">
+          <a
+            href="museum.html"
+            class="menu-item text-white hover:text-gray-300 font-medium"
+          >
+            Museum Digital
+          </a>
+        </div>
+        <div class="relative pl-4">
+          <a
+            href="#contact"
+            class="menu-item text-white hover:text-gray-300 font-medium"
+          >
+            Kontak
+          </a>
+        </div>
+
+        <!-- Ikon search di menu hamburger -->
+        <div class="search-icon mt-4 pl-4">
+          <button
+            class="text-white hover:text-gray-300 focus:outline-none"
+            id="searchButtonMobile"
+          >
+            <i class="fas fa-search text-lg"></i>
+          </button>
+          <!-- Kotak penelusuran -->
+          <div
+            id="searchBoxMobile"
+            class="bg-white rounded-lg shadow-md px-4 py-2 hidden"
+          >
+            <input
+              type="text"
+              class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:border-blue-500"
+              placeholder="Cari..."
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mx-auto px-12">
+      <!-- Nama UMKM dan Penjelasan Singkat -->
+
+      <!-- Main Content -->
+      <div class="container mx-auto p-8">
+        <h2 class="text-4xl font-semibold mb-4">Sejarah Geopark Merangin</h2>
+        <img
+          src="../img/geoprk/exgeopark1.jpg"
+          alt="Ilustrasi Stratigrafi"
+          class="w-full h-80 rounded shadow-lg mb-4"
+        />
+        <p class="mb-6">
+          Geopark Merangin terletak di Provinsi Jambi, Indonesia, dan dikenal
+          karena keanekaragaman geologinya yang kaya. Sejak zaman purba, wilayah
+          ini telah mengalami berbagai proses geologi yang membentuk lanskap
+          unik dan sumber daya alam yang melimpah. Mari kita telusuri sejarah
+          Geopark Merangin, termasuk stratigrafi dan tatanan geologisnya.
+        </p>
+
+        <!-- Stratigraphy Section -->
+        <h3 class="text-2xl font-semibold mt-6">
+          Stratigrafi Geopark Merangin
+        </h3>
+        <p class="mb-4">
+          Stratigrafi Geopark Merangin menggambarkan lapisan-lapisan geologis
+          yang terbentuk sepanjang waktu. Formasi geologi di kawasan ini
+          menyimpan informasi berharga tentang sejarah lingkungan dan kehidupan
+          purba.
+        </p>
+        <img
+          src="../img/stphy/stratigraphy.png"
+          alt="Ilustrasi Stratigrafi"
+          class="w-full h-auto rounded shadow-lg mb-4"
+        />
+        <p class="mb-4">
+          Beberapa formasi penting yang ditemukan di Geopark Merangin meliputi:
+        </p>
+        <ul class="list-disc ml-8 mb-4 text-justify">
+          <li>
+            <strong>Formasi Mengkarang:</strong> Formasi ini terdapat di
+            Selango, Kecamatan Bangko Barat, di Sungai Mengkarang. Lithologi
+            terdiri dari lava vulkanik, konglomerat epiklastik, tuff, dan batuan
+            sedimen. Di bagian hulu Sungai Mengkarang, terdapat konglomerat
+            epiklastik dan sandstone tuffaceous. Formasi ini menunjukkan
+            lingkungan pengendapan lacustrine, fluviatile, delta front, dan
+            shallow marine yang berkaitan dengan sistem vulkanik Karing. Formasi
+            ini diperkirakan berasal dari periode Awal Permian hingga
+            Pertengahan Permian (300 Ma - 260 Ma).
+          </li>
+          <li>
+            <strong>Formasi Telukwang (Pt):</strong> Terdiri dari konglomerat
+            dan sandstone kuarsa yang bergantian dengan interkalasi claystone.
+            Ditemukan di Sungai Merangin, dengan ciri sincline yang menunjukkan
+            facies fluviatile. Umur formasi ini diperkirakan dari Pertengahan
+            Permian hingga Akhir Permian (260 Ma - 250 Ma).
+          </li>
+          <li>
+            <strong>Formasi Palepat (Pp):</strong> Formasi ini mengandung produk
+            paleovulkanik, seperti tuffaceous lithic dan lava andesit basaltik.
+            Ditemukan di Durian Lecah dan Muaro Panco, dan berasal dari Awal
+            Permian hingga Pertengahan Permian. Formasi ini berhubungan dengan
+            subduksi Paleo-Pasifik di tepi timur laut terrane West Sumatra.
+          </li>
+          <li>
+            <strong>Intrusi Air Batu:</strong> Intrusi ini terdiri dari urutan
+            granitoid dan diorit. Ditemukan di Sungai Merangin dan diasosiasikan
+            dengan Cacat Mengkarang. Intrusi ini berumur Trias Akhir hingga
+            Jurassic Awal (209 Ma - 199 Ma).
+          </li>
+          <li>
+            <strong>Formasi Asai (Ja):</strong>Terdiri dari slate, phyllite, dan
+            schist, ditemukan di Muara Siau. Formasi ini menutup secara
+            diskonformitas dengan Grup Paleozoik, dan diasosiasikan dengan
+            obduksi Woyla Arc.
+          </li>
+          <li>
+            <strong>Formasi Granitik (Jgr):</strong> Terdiri dari granite dan
+            granodiorite, ditemukan di Tanjung Putus. Intrusi ini berhubungan
+            dengan Formasi Palepat dan diperkirakan berumur Jurassic.
+          </li>
+          <li>
+            <strong>Formasi Peneta (KJp):</strong> Terdiri dari tuffaceous shale
+            dan sandstone dengan interkalasi limestone, berumur Jurassic Atas
+            hingga Cretaceous Awal. Formasi ini berhubungan dengan zona akresi
+            di terrane West Sumatra.
+          </li>
+          <li>
+            <strong> Mersip Member Peneta Formation (KJpm) :</strong> Terdiri
+            dari limestone dengan interkalasi shale kalsit. Ditemukan di Gua
+            Kristal Tiangko. Formasi ini berhubungan dengan zona penyimpanan
+            neritik shelf-organic reef.
+          </li>
+        </ul>
+
+        <!-- Tectonic Section -->
+        <h3 class="text-2xl font-semibold mt-6">Tatanan Geologis (Tektonik)</h3>
+        <p class="mb-4">
+          Tatanan geologis di Geopark Merangin sangat dipengaruhi oleh proses
+          tektonik. Kawasan ini terletak pada zona subduksi, yang menyebabkan
+          aktivitas geologi yang dinamis.
+        </p>
+        <img
+          src="../img/tectonic/ttnc.png"
+          alt="Ilustrasi Tectonic"
+          class="w-full h-auto rounded shadow-lg mb-4"
+        />
+        <p class="mb-4">
+          Beberapa aspek penting dari tatanan geologis meliputi:
+        </p>
+        <ul class="list-disc ml-8 mb-4">
+          <li>
+            <strong>Patahan Aktif:</strong> Terdapat patahan yang dapat
+            menyebabkan aktivitas seismik di kawasan ini.
+          </li>
+          <li>
+            <strong>Sumber Daya Alam:</strong> Geopark Merangin memiliki potensi
+            sumber daya mineral dan energi yang besar.
+          </li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mt-6">Pentingnya Geopark Merangin</h3>
+        <p class="mb-4">
+          Geopark Merangin tidak hanya menarik bagi wisatawan, tetapi juga
+          penting untuk pendidikan dan penelitian. Berbagai jenis batuan dan
+          formasi geologis yang unik menjadikan kawasan ini sebagai laboratorium
+          alam bagi para geolog, mahasiswa, dan peneliti untuk mempelajari
+          sejarah bumi.
+        </p>
+
+        <p class="mb-6">
+          Melalui pelestarian Geopark Merangin, kita tidak hanya menjaga warisan
+          geologi, tetapi juga menciptakan kesadaran akan pentingnya lingkungan
+          dan sumber daya alam bagi generasi mendatang.
+        </p>
+      </div>
+    </div>
+
+    <!--penutup-->
+    <footer class="bg-indigo-900 py-2" id="contact">
+      <section class="w-full max-w-6xl mx-auto py-8">
+        <div class="flex flex-col md:flex-row md:justify-between">
+          <!-- Kontak -->
+          <div
+            class="bg-transparent p-2 rounded-lg text-center md:text-left mb-4 md:mb-0"
+          >
+            <h3 class="text-lg md:text-xl font-bold text-white mb-3">Kontak</h3>
+            <p class="text-sm md:text-base text-white mb-3">
+              Alamat: Jl. Jambi – Muara Bulian No.KM. 15, Mendalo Darat, Kec.
+              Jambi Luar Kota, Kabupaten Muaro Jambi, Jambi
+            </p>
+            <p class="text-sm md:text-base text-white mb-3">
+              Telepon: (123) 456-7890
+            </p>
+            <p class="text-sm md:text-base text-white mb-3">
+              Email: info@example.com
+            </p>
+          </div>
+
+          <!-- Media Sosial -->
+          <div class="bg-transparent p-6 rounded-lg text-center md:text-left">
+            <h3 class="text-lg md:text-xl font-bold text-white mb-3">
+              Follow Us
+            </h3>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
+              <!-- Facebook -->
+              <a
+                href="#"
+                class="text-white hover:text-indigo-600 flex items-center space-x-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  class="w-6 h-6 md:w-8 md:h-8"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"
+                  />
+                </svg>
+                <span class="text-xs md:text-sm">puigemarfacebook</span>
+              </a>
+              <!-- Instagram -->
+              <a
+                href="#"
+                class="text-white hover:text-indigo-600 flex items-center space-x-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  class="w-6 h-6 md:w-8 md:h-8"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.2 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                  />
+                </svg>
+                <span class="text-xs md:text-sm">puigemarinstagram</span>
+              </a>
+              <!-- X -->
+              <a
+                href="#"
+                class="text-white hover:text-indigo-600 flex items-center space-x-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  class="w-6 h-6 md:w-8 md:h-8"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                  />
+                </svg>
+                <span class="text-xs md:text-sm">puigemarX</span>
+              </a>
+              <!-- TikTok -->
+              <a
+                href="#"
+                class="text-white hover:text-indigo-600 flex items-center space-x-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  class="w-6 h-6 md:w-8 md:h-8"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
+                  />
+                </svg>
+                <span class="text-xs md:text-sm">puigemartiktok</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="w-full bg-gray-300 py-4 text-center">
+        <p class="text-indigo-900 text-sm">
+          &copy; 2024 PUI GEMAR |All Rights Reserved
+        </p>
+      </section>
+    </footer>
+    <!--  link JavaScript Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--  link JavaScript tambahan -->
+    <script src="javascript.js"></script>
+    <script>
+      function copyPhoneNumber() {
+        const phoneNumber = "(098) 765-4321";
+        navigator.clipboard
+          .writeText(phoneNumber)
+          .then(() => {
+            alert("Nomor telepon telah disalin ke clipboard!");
+          })
+          .catch((err) => {
+            console.error("Gagal menyalin nomor telepon: ", err);
+          });
+      }
+    </script>
+  </body>
+</html>
