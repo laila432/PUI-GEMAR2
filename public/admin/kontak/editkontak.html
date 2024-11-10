@@ -101,6 +101,11 @@
                 >Artikel</a
               >
               <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
                 href="../sumberdayaadmin/kegiatanadm.html"
                 class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                 >Kegiatan</a
@@ -113,7 +118,7 @@
             </div>
           </div>
           <a
-            href="museumadmin.html"
+            href="../museumadmin/museumadmin.html"
             class="block px-4 py-2 text-md text-white hover:bg-gray-600"
             >Museum</a
           >
@@ -127,7 +132,7 @@
             </a>
             <div id="kontakSubMenu" class="ml-4 hidden">
               <a
-                href="../kontak/editkontak.html"
+                href="editkontak.html"
                 class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
                 >Edit Kontak</a
               >
@@ -206,12 +211,12 @@
             id="content"
             class="transition-transform duration-500 ease-in-out"
           >
-            <div class="text-left mb-4 mr-16">
-              <h1 class="text-3xl font-bold mb-4 mt-3 text-indigo-800">
-                Edit Kontak
-              </h1>
+            <div class="text-left mb-4 mr-16 p-8">
               <!-- Tambahkan tombol edit disini -->
               <form class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <h1 class="text-3xl font-bold mb-4 mt-3 text-indigo-800">
+                  Edit Kontak (Footer)
+                </h1>
                 <div class="mb-4">
                   <label
                     class="block text-gray-700 text-sm font-bold mb-2"
@@ -309,9 +314,9 @@
                 </div>
                 <button
                   type="submit"
-                  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
-                  Update Footer
+                  Simpan
                 </button>
               </form>
             </div>
@@ -327,10 +332,32 @@
     <!-- Initialize Summernote editor -->
     <script src="../summernote.js"></script>
     <script>
-      // Contoh data yang disediakan secara hardcoded
-      const existingData = {
-        title: "Judul artikel sebelumnya",
-        fieldcontent: "Konten artikel yang telah diisi sebelumnya...",
+      // Data yang sudah ada (misalnya, dari server atau objek JavaScript)
+      const footerData = {
+        address: "Jalan XYZ No. 123",
+        phone: "(021) 123-4567",
+        email: "contact@google.com",
+        facebook_url: "https://facebook.com",
+        instagram_url: "https://instagram.com",
+        tiktok_url: "https://tiktok.com",
+        youtube_url: "https://youtube.com",
+      };
+
+      // Fungsi untuk mengisi form dengan data yang ada
+      function isiFormFooter(data) {
+        document.getElementById("address").value = data.address || "";
+        document.getElementById("phone").value = data.phone || "";
+        document.getElementById("email").value = data.email || "";
+        document.getElementById("facebook_url").value = data.facebook_url || "";
+        document.getElementById("instagram_url").value =
+          data.instagram_url || "";
+        document.getElementById("tiktok_url").value = data.tiktok_url || "";
+        document.getElementById("youtube_url").value = data.youtube_url || "";
+      }
+
+      // Panggil fungsi untuk mengisi form ketika halaman dimuat
+      window.onload = function () {
+        isiFormFooter(footerData);
       };
     </script>
   </body>
