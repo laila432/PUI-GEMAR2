@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum Digital</title>
+    <link href="../../css/outputadmin.css" rel="stylesheet" />
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--css summernote list-->
+    <style>
+      .note-editor .note-editable ol {
+        list-style-type: decimal !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+
+      .note-editor .note-editable ul {
+        list-style-type: disc !important;
+        list-style-position: inside !important;
+        margin-left: 1.5rem !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 font-poppins">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="fixed inset-y-0 left-0 z-30 w-64 bg-indigo-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center justify-center px-4 py-4">
+          <img
+            src="../../img/logo/logo.png"
+            alt="Logo"
+            class="h-24 w-auto object-contain mt-4"
+          />
+        </div>
+        <nav class="mt-8 ml-2">
+          <a
+            href="../berandaadmin/indexadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Dashboard</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="profilSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Profil <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="profilSubMenu" class="ml-4 hidden">
+              <a
+                href="../profiladmin/sejarahadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Sejarah</a
+              >
+              <a
+                href="../profiladmin/visimisiadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Visi Misi</a
+              >
+              <a
+                href="../profiladmin/strukturoradmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Struktur Organisasi</a
+              >
+              <a
+                href="../profiladmin/timadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Tim</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <a
+              href="#"
+              id="sumberdayaSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Sumber Daya <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="sumberdayaSubMenu" class="ml-4 hidden">
+              <a
+                href="../sumberdayaadmin/artikeladm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Artikel</a
+              >
+              <a
+                href="../sumberdayaadmin/hkiadmin.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >HKI</a
+              >
+              <a
+                href="../sumberdayaadmin/kegiatanadm.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Kegiatan</a
+              >
+              <a
+                href="../sumberdayaadmin/persebaran.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Persebaran UMKM</a
+              >
+            </div>
+          </div>
+          <a
+            href="museumadmin.html"
+            class="block px-4 py-2 text-md text-white hover:bg-gray-600"
+            >Museum</a
+          >
+          <div class="relative">
+            <a
+              href="#"
+              id="kontakSubMenuToggle"
+              class="block px-4 py-2 text-md text-white hover:bg-gray-600 items-center"
+            >
+              Kontak <i class="fas fa-caret-down ml-2"></i>
+            </a>
+            <div id="kontakSubMenu" class="ml-4 hidden">
+              <a
+                href="../kontak/editkontak.html"
+                class="block px-4 py-2 text-sm text-white hover:bg-gray-600"
+                >Edit Kontak</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Main content -->
+      <div
+        id="main-content"
+        class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ml-0"
+      >
+        <!-- Header -->
+        <nav class="bg-indigo-50 border-b border-gray-200">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+              <div class="flex items-center">
+                <button
+                  id="menu-button"
+                  class="text-indigo-900 hover:text-gray-400 focus:outline-none"
+                  aria-label="Toggle Sidebar"
+                >
+                  <i class="fas fa-bars fa-lg"></i>
+                  <span class="sr-only">Toggle Sidebar</span>
+                </button>
+              </div>
+              <div class="flex items-center ml-3">
+                <div class="relative">
+                  <!-- Profile Button -->
+                  <button
+                    id="profile-menu-button"
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-transparent"
+                  >
+                    <img
+                      id="profile-image"
+                      src="../../img/angt/pas2.jpg"
+                      alt="Profile Image"
+                      class="hidden rounded-full w-8 h-8 object-cover"
+                    />
+                    <i
+                      id="profile-icon"
+                      class="fas fa-user-circle fa-lg text-white"
+                    ></i>
+                  </button>
+
+                  <!-- Profile Menu -->
+                  <div
+                    id="profile-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu-button"
+                  >
+                    <a
+                      href="../akunadmin/editakunprofil.html"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Edit</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-white hover:bg-gray-400"
+                      role="menuitem"
+                      >Logout</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Content -->
+        <main class="flex-1 bg-gray-100 p-4 sm:p-6 overflow-y-auto">
+          <div
+            id="content"
+            class="transition-transform duration-500 ease-in-out"
+          >
+            <div class="container mx-auto p-8">
+              <h1 class="text-4xl font-semibold text-indigo-900 mb-6">
+                Museum
+              </h1>
+
+              <!-- Tabel Konten -->
+              <table class="min-w-full bg-white mt-12 text-center">
+                <thead>
+                  <tr>
+                    <th class="py-2">Judul</th>
+                    <th class="py-2">Deskripsi Singkat</th>
+                    <th class="py-2">Gambar</th>
+                    <th class="py-2">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Data Dummy -->
+                  <tr>
+                    <td class="py-2 px-4">Sejarah Geopark Merangin</td>
+                    <td class="py-2 px-4">
+                      Penjelasan singkat tentang Geopark Merangin...
+                    </td>
+                    <td class="py-2 px-4 flex justify-center items-center">
+                      <img
+                        src="../../img/geoprk/gprk-1.jpg"
+                        alt="Gambar Geopark"
+                        class="w-20 h-20 object-cover"
+                      />
+                    </td>
+                    <td class="py-2 px-4 mr-8">
+                      <a
+                        href="edtsejarahgeopark.html"
+                        class="text-blue-600 hover:underline justify-center ml-2"
+                        >Edit</a
+                      >
+                    </td>
+                  </tr>
+                  <!-- Tambahkan lebih banyak data di sini -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="container mx-auto">
+              <!-- Dropdown Pilihan Jenis Data -->
+              <div class="mb-6">
+                <label
+                  for="dataType"
+                  class="block text-lg font-bold text-gray-700 mb-2 mt-12"
+                  >Pilih Jenis Data:</label
+                >
+                <select
+                  id="dataType"
+                  class="max-w-xs p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="fauna">Fauna</option>
+                  <option value="flora">Flora</option>
+                  <option value="fosil">Fosil</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
+              </div>
+
+              <!-- Tabel Responsif -->
+              <div class="overflow-x-auto">
+                <table
+                  class="min-w-full bg-gray-200 border border-gray-300 rounded-lg table-auto"
+                >
+                  <thead>
+                    <tr class="bg-indigo-900 text-white text-center">
+                      <th class="py-2 px-8 border border-gray-300 text-md">
+                        Nama Keragaman
+                      </th>
+                      <th class="py-2 px-8 border border-gray-300 text-md">
+                        Foto
+                      </th>
+                      <th class="py-2 px-8 border border-gray-300 text-md">
+                        Deskripsi
+                      </th>
+                      <th class="py-2 px-8 border border-gray-300 text-md">
+                        Lokasi
+                      </th>
+                      <th class="py-2 px-8 border border-gray-300 text-md">
+                        Umur
+                      </th>
+                      <th class="py-2 px-8 border border-gray-300 text-md">
+                        Aksi
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody" class="bg-gray">
+                    <tr class="border border-gray-300">
+                      <td class="py-2 px-8 border border-gray-300 text-sm">
+                        Pakis Purba
+                      </td>
+                      <td class="py-2 px-8 border border-gray-300">
+                        <img
+                          src="pakis.jpg"
+                          alt="Pakis"
+                          class="h-12 w-12 md:h-16 md:w-16 object-cover rounded"
+                        />
+                      </td>
+                      <td class="py-2 px-8 border border-gray-300 text-sm">
+                        Fosil pakis dari periode Paleozoikum.
+                      </td>
+                      <td class="py-2 px-8 border border-gray-300 text-sm">
+                        Jambi, Sumatra
+                      </td>
+                      <td class="py-2 px-8 border border-gray-300 text-sm">
+                        250 juta tahun
+                      </td>
+                      <td
+                        class="py-2 px-8 border border-gray-300 text-sm text-center"
+                      >
+                        <a href="editmuseum.html">
+                          <button
+                            class="text-blue-500 hover:text-blue-700 mr-4"
+                          >
+                            <i class="fas fa-edit"></i>
+                            <!-- Ikon Edit -->
+                          </button>
+                        </a>
+                        <button class="text-red-500 hover:text-red-700">
+                          <i class="fas fa-trash"></i>
+                          <!-- Ikon Delete -->
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mb-8 p-8">
+              <h2
+                class="text-2xl font-bold text-indigo-900 mt-12 inline-block border-b-2 border-indigo-900"
+              >
+                Kontak Museum
+                <!-- Ikon edit yang mengarahkan ke halaman edit -->
+                <a
+                  href="editkontakphkdua.html"
+                  class="text-amber-500 cursor-pointer ml-2"
+                  title="edit kontak pihak kedua"
+                >
+                  <i class="fas fa-edit"></i>
+                </a>
+              </h2>
+              <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3
+                  class="text-xl font-semibold text-indigo-900 mb-4 border-b-2"
+                >
+                  Kontak Pihak Museum
+                </h3>
+                <p class="text-gray-700 mb-3">
+                  Untuk informasi lebih lanjut, Anda dapat menghubungi:
+                </p>
+
+                <div class="flex items-center mb-1">
+                  <i
+                    class="fas fa-user-circle text-indigo-700 text-xl mr-4"
+                  ></i>
+                  <p class="text-gray-800 text-lg">Nama Kontak: Budi Santoso</p>
+                </div>
+
+                <div class="flex items-center mb-1">
+                  <i class="fas fa-phone-alt text-indigo-700 text-xl mr-4"></i>
+                  <p
+                    class="text-gray-800 text-lg cursor-pointer"
+                    onclick="copyPhoneNumber()"
+                  >
+                    Telepon: (098) 765-4321
+                  </p>
+                </div>
+
+                <div class="flex items-center mb-1">
+                  <i class="fas fa-envelope text-indigo-700 text-xl mr-4"></i>
+                  <p class="text-gray-800 text-lg">
+                    Whatsapp:
+                    <a
+                      href="mailto:budi.santoso@example.com"
+                      class="text-indigo-600 hover:underline"
+                    >
+                      089787654779
+                    </a>
+                  </p>
+                </div>
+
+                <div class="flex items-center mb-1">
+                  <i class="fab fa-instagram text-indigo-700 text-xl mr-4"></i>
+                  <p class="text-gray-800 text-lg">
+                    Instagram:
+                    <a
+                      href="https://www.instagram.com/budisantoso"
+                      class="text-indigo-600 hover:underline"
+                      target="_blank"
+                    >
+                      budi_santoso
+                    </a>
+                  </p>
+                </div>
+
+                <div class="flex items-center mb-2">
+                  <i
+                    class="fas fa-map-marker-alt text-indigo-700 text-xl mr-4"
+                  ></i>
+                  <p class="text-gray-800 text-lg">Alamat: Jalan DEF No. 456</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Action Button -->
+            <a href="tambahmuseum.html">
+              <button
+                class="fixed bottom-4 right-4 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mr-4"
+                aria-label="Tambah Tim"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </a>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jsadmin.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
+    <!-- Initialize Summernote editor -->
+    <script src="../summernote.js"></script>
+    <script>
+      // Contoh data untuk beberapa jenis keragaman
+      const data = {
+        fauna: [
+          {
+            nama: "Harimau Sumatra",
+            foto: "harimau.jpg",
+            deskripsi: "Harimau endemik Sumatra.",
+            lokasi: "Sumatra",
+            umur: "15 tahun",
+          },
+          {
+            nama: "Badak Jawa",
+            foto: "badak.jpg",
+            deskripsi: "Badak langka dari Jawa.",
+            lokasi: "Ujung Kulon",
+            umur: "20 tahun",
+          },
+        ],
+        flora: [
+          {
+            nama: "Rafflesia Arnoldii",
+            foto: "rafflesia.jpg",
+            deskripsi: "Bunga terbesar di dunia.",
+            lokasi: "Bengkulu",
+            umur: "Abadi",
+          },
+          {
+            nama: "Anggrek Hitam",
+            foto: "anggrek.jpg",
+            deskripsi: "Anggrek langka dari Kalimantan.",
+            lokasi: "Kalimantan",
+            umur: "Abadi",
+          },
+        ],
+        fosil: [
+          {
+            nama: "Pakis Purba",
+            foto: "pakis.jpg",
+            deskripsi: "Fosil pakis dari periode Paleozoikum.",
+            lokasi: "Jambi, Sumatra",
+            umur: "250 juta tahun",
+          },
+          {
+            nama: "Trilobit",
+            foto: "trilobit.jpg",
+            deskripsi: "Fosil hewan laut purba.",
+            lokasi: "Papua",
+            umur: "300 juta tahun",
+          },
+        ],
+      };
+
+      // Fungsi untuk mengganti konten tabel sesuai dengan pilihan
+      const dataTypeSelect = document.getElementById("dataType");
+      const tableBody = document.getElementById("tableBody");
+
+      function updateTable() {
+        const selectedType = dataTypeSelect.value;
+        const selectedData = data[selectedType];
+
+        // Bersihkan tabel sebelum mengisi data baru
+        tableBody.innerHTML = "";
+
+        selectedData.forEach((item) => {
+          const row = `
+              <tr class="border-b border-gray-300">
+                <td class="py-3 px-8">${item.nama}</td>
+                <td class="py-3 px-8">
+                  <img src="${item.foto}" alt="${item.nama}" class="h-16 w-16 object-cover rounded">
+                </td>
+                <td class="py-3 px-8">${item.deskripsi}</td>
+                <td class="py-3 px-8">${item.lokasi}</td>
+                <td class="py-3 px-8">${item.umur}</td>
+                <td class="py-3 px-4">
+                  <a href="editmuseum.html">
+                  <button class="text-blue-500 hover:text-blue-700 mr-4">
+                          <i class="fas fa-edit"></i>
+                          <!-- Ikon Edit -->
+                        </button>
+                        </a>
+                        <button class="text-red-500 hover:text-red-700">
+                          <i class="fas fa-trash"></i>
+                          <!-- Ikon Delete -->
+                        </button>
+                </td>
+              </tr>
+            `;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      // Fungsi untuk edit data
+      function editData(nama) {
+        alert(`Edit data: ${nama}`);
+        // Logika edit data bisa diimplementasikan di sini
+      }
+
+      // Fungsi untuk hapus data
+      function deleteData(nama) {
+        if (confirm(`Yakin ingin menghapus data: ${nama}?`)) {
+          alert(`Data ${nama} dihapus`);
+          // Logika untuk menghapus data bisa diimplementasikan di sini
+        }
+      }
+
+      // Event listener ketika dropdown berubah
+      dataTypeSelect.addEventListener("change", updateTable);
+
+      // Set data awal
+      updateTable();
+    </script>
+  </body>
+</html>
