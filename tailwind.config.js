@@ -3,6 +3,11 @@ module.exports = {
   content: ['./public/pengunjung/**/*.{html,js}'],
   theme: {
     extend: {
+      wordBreak: {
+        normal: 'normal',
+        break: 'break-word',
+        all: 'break-all', // Tambahan: mengizinkan pemecahan kata di seluruh elemen
+      },
       colors: {
         amber: {
           100: '#FEF3C7',
@@ -31,8 +36,26 @@ module.exports = {
         'poppins': ['Poppins', 'sans-serif'],
       },
       width: {
+        
+          '49': '12.25rem', // sesuaikan dengan ukuran yang Anda inginkan
+          '50': '12.5rem',
+          '51': '12.75rem',
+          '52': '13rem',
+          '53': '13.25rem',
+          '54': '13.5rem',
+          '55': '13.75rem',
+          '56': '14rem',
+          '57': '14.25rem',
+          '58': '14.5rem',
+          '59': '14.75rem',
+          '60': '15rem',
+          '5.8cm': '5.8cm', 
+        
         '100': '25rem',  // w-100 akan setara dengan 25rem
         '150': '37.5rem',  // w-150 akan setara dengan 37.5rem
+      },
+      height: {
+        '6cm': '6cm', // Tambahkan tinggi 6 cm
       },
       spacing: {
         '1rem': '1rem', // Jarak antar gambar
